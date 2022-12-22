@@ -23,26 +23,22 @@ html{
 .cards-container{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-evenly;
+  row-gap: 20px;
+  column-gap: 12px;
 }
 
 .card-container{
-  flex: 1 1 300px;
+  flex: 0.3 1 300px;
   background-color: var(--black);
-  padding: 8px;
 }
-
-/* .cards-container::after{
-    content: "  ";
-    flex: 100;     
-} */
 
 .card{
   display: flex;
   flex-direction: column;
   background-color: var(--yellow);
-  padding: 10px;
+  margin: 8px;
+  padding: 8px;
 }
 
 .header{
