@@ -1,29 +1,61 @@
+const cardsList = [
+  {
+    number: 01
+  },
+  {
+    number: 02
+  },
+  {
+    number: 03
+  },
+  {
+    number: 04
+  },
+  {
+    number: 05
+  },
+  {
+    number: 06
+  },
+  {
+    number: 07
+  },
+  {
+    number: 08
+  },
+  {
+    number: 09
+  },
+  {
+    number: 10
+  }
+]
+
 window.onload = function () {
+  const centralZonesList = cardsList.map(() => `
+    <div class="zone">
+      <div class="card-space"></div>
+    </div>
+  `)
+
   const fieldSections = `
     <div class="side-section two-columns-section">
-      <div class="zone bottom-zone"></div>
-      <div class="zone central-zone"></div>
-      <div class="zone top-zone"></div>
-      <div class="zone deck-zone"></div>
+      <div class="zone special-zone bottom-zone"><div class="special-space"></div></div>
+      <div class="zone special-zone central-zone"><div class="special-space"></div></div>
+      <div class="zone special-zone top-zone"><div class="special-space"></div></div>
+      <div class="zone special-zone deck-zone"><div class="special-space"></div></div>
     </div>
 
     <div class="central-section">
-      <div class="zone"></div>
-      <div class="zone"></div>
-      <div class="zone"></div>
-      <div class="zone"></div>
-      <div class="zone"></div>
-      <div class="zone"></div>
-      <div class="zone"></div>
-      <div class="zone"></div>
-      <div class="zone"></div>
-      <div class="zone"></div>
+      <div class="zones-container">
+        ${centralZonesList.join('')}
+      </div>
     </div>
 
     <div class="side-section one-column-section">
-      <div class="zone"></div>
-      <div class="zone"></div>
-      <div class="zone"></div>
+      <div class="zone special-zone"><div class="special-space"></div></div>
+      <div class="zone special-zone"><div class="special-space"></div></div>
+      <div class="zone special-zone"><div class="special-space"></div></div>
     </div>
   `
   const topField = document.querySelector('.top-field');
