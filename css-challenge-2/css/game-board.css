@@ -94,17 +94,15 @@
 }
 
 .zone {
+  display: grid;
+  justify-items: center;
+  align-items: center;
   border: var(--border-size-x04) solid var(--black);
+  background-color: red;
 }
 
 .special-zone {
   padding: var(--gap-x01);
-}
-
-.card-space{
-  width: 100%;
-  height: 100%;
-  background-color: var(--space-color);
 }
 
 .special-space{

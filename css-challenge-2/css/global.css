@@ -42,10 +42,10 @@ body {
 --x09: 3.6rem;
 --x10: 4.0rem;
 
---border-size-x01: 1px;
---border-size-x02: 2px;
---border-size-x03: 3px;
---border-size-x04: 4px;
+--border-size-x01: 0.1rem;
+--border-size-x02: 0.2rem;
+--border-size-x03: 0.3rem;
+--border-size-x04: 0.4rem;
 
 --gap-x01: 0.5rem;
 --gap-x02: 1rem;
