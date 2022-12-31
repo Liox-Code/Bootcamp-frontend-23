@@ -95,28 +95,39 @@ const cardComponent = (cardData) => {
   let card = `
     <div class="card-container">
       <div class="card">
+
         <div class="header">
-          <h2>${title}</h2>
+          <div class="title">
+            <h2>${title}</h2>
+          </div>
           <div class="symbol"></div>
         </div>
+
         <div class="graphic-info">
           <div class="stars">
             ${stars}
           </div>
           <img src="${imageSource}" alt="">
         </div>
+
         <div class="info">
-          <h3>${cardType}</h3>
-          <p>${description}</p>
-          <div class="status-data">
+          <div class="info-title">
+            <h3>${cardType}</h3>
+          </div>
+          <div class="info-description">
+            <p>${description}</p>
+          </div>
+          <div class="info-status-data">
             <span>ATK / ${statusData.puntosAtaque}</span>
             <span>DEF / ${statusData.puntosDefensa}</span>
           </div>
         </div>
+
         <div class="copyright">
           <span>46986414</span>
           <span>@2014 KAZUKE TAKAHASHI</span>
         </div>
+
       </div>
     </div>
   `
@@ -124,22 +135,20 @@ const cardComponent = (cardData) => {
   card = `
     <div class="card-container">
       <div class="card">
-        <div class="header">
-          <h2>${title}</h2>
-          <div class="symbol"></div>
-        </div>
+        
         <div class="info">
-        <h3>${cardType}</h3>
-        <p>${description}</p>
-        <div class="status-data">
-          <span>ATK / ${statusData.puntosAtaque}</span>
-          <span>DEF / ${statusData.puntosDefensa}</span>
+          <div class="info-title">
+            <h3>${cardType}</h3>
+          </div>
+          <div class="info-description">
+            <p>${description}</p>
+          </div>
+          <div class="info-status-data">
+            <span>ATK / ${statusData.puntosAtaque}</span>
+            <span>DEF / ${statusData.puntosDefensa}</span>
+          </div>
         </div>
-      </div>
-      <div class="copyright">
-        <span>46986414</span>
-        <span>@2014 KAZUKE TAKAHASHI</span>
-      </div>
+
       </div>
     </div>
   `
