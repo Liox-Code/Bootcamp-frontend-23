@@ -135,13 +135,20 @@ const cardComponent = (cardData) => {
   card = `
     <div class="card-container">
       <div class="card">
+
+        <div class="header">
+          <div class="title">
+            <h2>${title}</h2>
+          </div>
+          <div class="symbol"></div>
+        </div>
         
         <div class="info">
           <div class="info-title">
             <h3>${cardType}</h3>
           </div>
           <div class="info-description">
-            <p>${description}</p>
+            <p>Angel LEonardo${description}</p>
           </div>
           <div class="info-status-data">
             <span>ATK / ${statusData.puntosAtaque}</span>

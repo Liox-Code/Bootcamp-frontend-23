@@ -76,12 +76,23 @@ img {
   grid-template-rows: repeat(3, min-content);
   align-items: center;
   padding: var(--gap-x01);
+  width: 100%;
   border: var(--border-size-x02) solid var(--brown);
   font-size: var(--x04);
 }
 
 .info-title{
+  display: grid;
+  justify-content: start;
+  align-items: center;
+  overflow: hidden;
+  background-color: red;
+}
 
+.info-title h3 {
+  background-color: aqua;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .info-description p{
@@ -91,11 +102,16 @@ img {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  line-break: anywhere;
+  background-color: aqua;
 }
 
 .info-status-data {
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  justify-content: start;
+  align-items: center;
+  overflow: hidden;
+  background-color: red;
 }
 
 .info-status-data span {
