@@ -74,7 +74,7 @@ img {
 
 
 .info {
-  display: grid;
+  display: inherit;
   grid-template-rows: min-content 1fr min-content;
   align-items: center;
   padding: var(--gap-x01);
@@ -103,7 +103,7 @@ img {
 }
 
 .info-status-data {
-  display: grid;
+  display: inherit;
   grid-template-columns: auto auto;
   justify-content: end;
   align-items: center;
