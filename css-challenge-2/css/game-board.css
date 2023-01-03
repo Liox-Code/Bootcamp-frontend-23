@@ -95,7 +95,7 @@
   justify-items: center;
   align-items: center;
   border: var(--border-size-x04) solid var(--black);
-  background-color: red;
+  background-color: var(--white);
 }
 
 .special-zone {
