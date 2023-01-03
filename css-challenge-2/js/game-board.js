@@ -1,7 +1,7 @@
 const cardsData = [
   {
     title: 'Blue-Eyes White Dragon',
-    numberStars: 3,
+    numberStars: 17,
     imageSource: 'img/magicImage1.jpg',
     cardType: 'Dragon',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur soluta beatae eveniet, voluptas consequuntur provident sit aut repudiandae repellendus laboriosam.',
@@ -97,9 +97,7 @@ const cardComponent = (cardData) => {
       <div class="card">
 
         <div class="header">
-          <div class="title">
-            <h2>${title}</h2>
-          </div>
+          <h2>${title}</h2>
           <div class="symbol"></div>
         </div>
 
@@ -111,12 +109,8 @@ const cardComponent = (cardData) => {
         </div>
 
         <div class="info">
-          <div class="info-title">
-            <h3>${cardType}</h3>
-          </div>
-          <div class="info-description">
-            <p>${description}</p>
-          </div>
+          <h3>${cardType}</h3>
+          <p>${description}</p>
           <div class="info-status-data">
             <span>ATK / ${statusData.puntosAtaque}</span>
             <span>DEF / ${statusData.puntosDefensa}</span>
@@ -132,34 +126,6 @@ const cardComponent = (cardData) => {
     </div>
   `
 
-  card = `
-    <div class="card-container">
-      <div class="card">
-
-        <div class="header">
-          <div class="title">
-            <h2>${title}</h2>
-          </div>
-          <div class="symbol"></div>
-        </div>
-        
-        <div class="info">
-          <div class="info-title">
-            <h3>${cardType}</h3>
-          </div>
-          <div class="info-description">
-            <p>Angel LEonardo${description}</p>
-          </div>
-          <div class="info-status-data">
-            <span>ATK / ${statusData.puntosAtaque}</span>
-            <span>DEF / ${statusData.puntosDefensa}</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  `
-
   return card
 }
 
@@ -167,9 +133,10 @@ const gameBoardRender = () => {
   const centralZonesList = [];
 
   for (let i = 0; i < 10; i++) {
+    const cardData = cardsData[(i % cardsData.length)]
     centralZonesList.push(`
       <div class="zone">
-        ${cardComponent(cardsData[0])}
+        ${cardComponent(cardData)}
       </div>
     `);
   }

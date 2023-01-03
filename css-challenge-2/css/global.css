@@ -11,10 +11,16 @@ html{
 
 body {
   display: grid;
-  width: 100vw;
+  grid-template-rows: min-content auto min-content;
   height: 100vh;
-  grid-template-rows: auto 1fr auto;
   background-color: var(--support-color-03);
+}
+
+.website-container{
+  display: grid;
+  grid-template-rows: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 :root{
@@ -22,7 +28,8 @@ body {
   --secondary-color: #0181CC; 
   --support-color-01: #241675; 
   --support-color-02: #01356A; 
-  --support-color-03: #0B1020; 
+  --support-color-03: #0B1020;
+  --support-color-04: #262626;
 
 --space-color:#803182;
 --red: #bd1d3a;
