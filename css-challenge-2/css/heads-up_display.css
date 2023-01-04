@@ -1,0 +1,9 @@
+.HUD {
+    position: fixed;
+    display: grid;
+    grid-template-rows: min-content auto min-content;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-content: center;
+    height: 80vh;
+    width: 100%;
+}

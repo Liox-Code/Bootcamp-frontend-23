@@ -92,7 +92,7 @@ const cardComponent = (cardData) => {
     description,
     statusData,
   } = cardData
-  let card = `
+  const card = `
     <div class="card-container">
       <div class="card">
 
@@ -127,6 +127,48 @@ const cardComponent = (cardData) => {
   `
 
   return card
+}
+
+const lifePointsComponent = () => {
+  const lifePoints = `
+    <div class="duelist-name">
+      <span>Name</span>
+    </div>
+    <div class="life-points">
+      <span>LP</span>
+      <span>8000</span>
+    </div>
+    <div class="duelist-picture">
+      <img src="./img/magicImage1.jpg" alt="">
+    </div>
+  `
+  const topLifeBar = document.querySelector('.top_life-bar');
+  topLifeBar.insertAdjacentHTML('beforeend', lifePoints);
+  const bottomLifeBar = document.querySelector('.bottom_life-bar');
+  bottomLifeBar.insertAdjacentHTML('beforeend', lifePoints);
+}
+
+const cardDescriptionComponent = () => {
+  const {
+    title,
+    numberStars,
+    imageSource,
+    cardType,
+    description,
+    statusData,
+  } = cardsData[0]
+
+  const card = cardComponent(cardsData[0])
+
+  const cardDescription = `
+    <div class="card-description_zone">
+      ${card}
+    </div>
+    <span class="card-description_title">${title}</span>
+    <span class="card-description_description">${description}</span>
+  `
+  const cardDesc = document.querySelector('.card-desc');
+  cardDesc.insertAdjacentHTML('beforeend', cardDescription);
 }
 
 const gameBoardRender = () => {
@@ -167,6 +209,39 @@ const gameBoardRender = () => {
   bottomField.insertAdjacentHTML('beforeend', fieldSections);
 }
 
+const navbarEvents = () => {
+  var btnShowLifeBar = document.getElementById("btnLifeBar");
+  var btnShowCardDescription = document.getElementById("btnCardsDescription");
+
+  console.log(btnShowLifeBar)
+  console.log(btnShowCardDescription)
+
+  btnShowLifeBar.addEventListener("click",() => {
+    var topLifeBar = document.getElementById("top_lb");
+    var bottomLifeBar = document.getElementById("bottom_lb");
+
+    if(topLifeBar.style.visibility === "hidden" && bottomLifeBar.style.visibility === "hidden") {
+      topLifeBar.style.visibility = "visible";
+      bottomLifeBar.style.visibility = "visible";
+    } else {
+      topLifeBar.style.visibility = "hidden";
+      bottomLifeBar.style.visibility = "hidden";
+    }
+  });
+  btnShowCardDescription.addEventListener("click",() => {
+    var cardDesc = document.getElementById("cd-card-desc");
+
+    if(cardDesc.style.visibility === "hidden") {
+      cardDesc.style.visibility = "visible";
+    } else {
+      cardDesc.style.visibility = "hidden";
+    }
+  });
+}
+
 window.onload = function () {
+  cardDescriptionComponent()
+  lifePointsComponent()
   gameBoardRender()
+  navbarEvents()
 }
