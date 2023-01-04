@@ -8,6 +8,7 @@
     gap: var(--gap-x01);
     z-index: 10;
     color: var(--white);
+    visibility: hidden;
 }
 
 .top_life-bar {
@@ -15,7 +16,7 @@
 }
 
 .bottom_life-bar{
-    grid-area: 3 / 3 / 4 / 4;
+    grid-area: 1 / 3 / 2 / 4;
 }
 
 .duelist-name{

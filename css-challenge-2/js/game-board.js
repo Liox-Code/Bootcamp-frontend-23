@@ -184,7 +184,7 @@ const gameBoardRender = () => {
   }
 
   const fieldSections = `
-    <div class="side-section two-columns-section">
+    <div class="side-section two-columns-section" id="twoColumnSide">
       <div class="zone special-zone bottom-zone"><div class="special-space"></div></div>
       <div class="zone special-zone central-zone"><div class="special-space"></div></div>
       <div class="zone special-zone top-zone"><div class="special-space"></div></div>
@@ -192,20 +192,24 @@ const gameBoardRender = () => {
     </div>
 
     <div class="central-section">
+      <div class='btnContainer'>
+        <button id='btnLeftSide'>Show / Hidden</button>
+        <button id='btnRightSide'>Show / Hidden</button>
+      </div>
       <div class="zones-container">
         ${centralZonesList.join('')}
       </div>
     </div>
 
-    <div class="side-section one-column-section">
+    <div class="side-section one-column-section" id="oneColumnSide">
       <div class="zone special-zone"><div class="special-space"></div></div>
       <div class="zone special-zone"><div class="special-space"></div></div>
       <div class="zone special-zone"><div class="special-space"></div></div>
     </div>
   `
-  const topField = document.querySelector('.top-field');
+  const topField = document.getElementById('top-field');
   topField.insertAdjacentHTML('beforeend', fieldSections);
-  const bottomField = document.querySelector('.bottom-field');
+  const bottomField = document.getElementById('bottom-field');
   bottomField.insertAdjacentHTML('beforeend', fieldSections);
 }
 
@@ -213,14 +217,11 @@ const navbarEvents = () => {
   var btnShowLifeBar = document.getElementById("btnLifeBar");
   var btnShowCardDescription = document.getElementById("btnCardsDescription");
 
-  console.log(btnShowLifeBar)
-  console.log(btnShowCardDescription)
-
-  btnShowLifeBar.addEventListener("click",() => {
+  btnShowLifeBar.addEventListener("click", () => {
     var topLifeBar = document.getElementById("top_lb");
     var bottomLifeBar = document.getElementById("bottom_lb");
 
-    if(topLifeBar.style.visibility === "hidden" && bottomLifeBar.style.visibility === "hidden") {
+    if (topLifeBar.style.visibility === "hidden" && bottomLifeBar.style.visibility === "hidden") {
       topLifeBar.style.visibility = "visible";
       bottomLifeBar.style.visibility = "visible";
     } else {
@@ -228,14 +229,47 @@ const navbarEvents = () => {
       bottomLifeBar.style.visibility = "hidden";
     }
   });
-  btnShowCardDescription.addEventListener("click",() => {
+  btnShowCardDescription.addEventListener("click", () => {
     var cardDesc = document.getElementById("cd-card-desc");
 
-    if(cardDesc.style.visibility === "hidden") {
+    if (cardDesc.style.visibility === "hidden") {
       cardDesc.style.visibility = "visible";
     } else {
       cardDesc.style.visibility = "hidden";
     }
+  });
+}
+
+const toggleSideSection = () => {
+  var btnTopLeftSide = document.getElementById("top-field").querySelector("#btnLeftSide");
+  var btnTopRightSide = document.getElementById("top-field").querySelector("#btnRightSide");
+  var btnBottomLeftSide = document.getElementById("bottom-field").querySelector("#btnLeftSide");
+  var btnBottomRightSide = document.getElementById("bottom-field").querySelector("#btnRightSide");
+
+  console.log(btnTopLeftSide)
+  console.log(btnTopRightSide)
+  console.log(btnBottomLeftSide)
+  console.log(btnBottomRightSide)
+
+  var topTwoColumnSide = document.getElementById("top-field").querySelector("#twoColumnSide");
+  var topOneColumnSide = document.getElementById("top-field").querySelector("#oneColumnSide");
+  var bottomTwoColumnSide = document.getElementById("bottom-field").querySelector("#twoColumnSide");
+  var bottomOneColumnSide = document.getElementById("bottom-field").querySelector("#oneColumnSide");
+
+  btnTopLeftSide.addEventListener("click", () => {
+    topTwoColumnSide.style.display = "inherit"
+  });
+
+  btnTopRightSide.addEventListener("click", () => {
+    topOneColumnSide.style.display = "inherit"
+  });
+
+  btnBottomLeftSide.addEventListener("click", () => {
+    bottomOneColumnSide.style.display = "inherit"
+  });
+
+  btnBottomRightSide.addEventListener("click", () => {
+    bottomTwoColumnSide.style.display = "inherit"
   });
 }
 
@@ -244,4 +278,5 @@ window.onload = function () {
   lifePointsComponent()
   gameBoardRender()
   navbarEvents()
+  toggleSideSection()
 }

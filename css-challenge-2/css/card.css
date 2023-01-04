@@ -97,7 +97,7 @@ img {
   line-break: anywhere;
   
   height: 100%;
-  max-height: 8px;
+  max-height: 24px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
