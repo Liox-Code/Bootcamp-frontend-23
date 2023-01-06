@@ -221,56 +221,102 @@ const navbarEvents = () => {
     var topLifeBar = document.getElementById("top_lb");
     var bottomLifeBar = document.getElementById("bottom_lb");
 
-    if (topLifeBar.style.visibility === "hidden" && bottomLifeBar.style.visibility === "hidden") {
-      topLifeBar.style.visibility = "visible";
-      bottomLifeBar.style.visibility = "visible";
-    } else {
-      topLifeBar.style.visibility = "hidden";
-      bottomLifeBar.style.visibility = "hidden";
-    }
+    toogleVisibility(topLifeBar)
+    toogleVisibility(bottomLifeBar)
   });
   btnShowCardDescription.addEventListener("click", () => {
     var cardDesc = document.getElementById("cd-card-desc");
 
-    if (cardDesc.style.visibility === "hidden") {
-      cardDesc.style.visibility = "visible";
-    } else {
-      cardDesc.style.visibility = "hidden";
-    }
+    toogleVisibility(cardDesc)
   });
 }
 
 const toggleSideSection = () => {
-  var btnTopLeftSide = document.getElementById("top-field").querySelector("#btnLeftSide");
-  var btnTopRightSide = document.getElementById("top-field").querySelector("#btnRightSide");
-  var btnBottomLeftSide = document.getElementById("bottom-field").querySelector("#btnLeftSide");
-  var btnBottomRightSide = document.getElementById("bottom-field").querySelector("#btnRightSide");
+  var topField = document.getElementById("top-field");
+  var bottomField = document.getElementById("bottom-field");
 
-  console.log(btnTopLeftSide)
-  console.log(btnTopRightSide)
-  console.log(btnBottomLeftSide)
-  console.log(btnBottomRightSide)
+  var btnTopLeftSide = topField.querySelector("#btnLeftSide");
+  var btnTopRightSide = topField.querySelector("#btnRightSide");
+  var btnBottomLeftSide = bottomField.querySelector("#btnLeftSide");
+  var btnBottomRightSide = bottomField.querySelector("#btnRightSide");
 
-  var topTwoColumnSide = document.getElementById("top-field").querySelector("#twoColumnSide");
-  var topOneColumnSide = document.getElementById("top-field").querySelector("#oneColumnSide");
-  var bottomTwoColumnSide = document.getElementById("bottom-field").querySelector("#twoColumnSide");
-  var bottomOneColumnSide = document.getElementById("bottom-field").querySelector("#oneColumnSide");
+  var topTwoColumnSide = topField.querySelector("#twoColumnSide");
+  var topOneColumnSide = topField.querySelector("#oneColumnSide");
+  var bottomTwoColumnSide = bottomField.querySelector("#twoColumnSide");
+  var bottomOneColumnSide = bottomField.querySelector("#oneColumnSide");
 
   btnTopLeftSide.addEventListener("click", () => {
-    topTwoColumnSide.style.display = "inherit"
+    toogleDisplay(topTwoColumnSide)
+    updateFieldGridFragmentation(topOneColumnSide, topTwoColumnSide, topField)
   });
 
   btnTopRightSide.addEventListener("click", () => {
-    topOneColumnSide.style.display = "inherit"
+    toogleDisplay(topOneColumnSide)
+    updateFieldGridFragmentation(topOneColumnSide, topTwoColumnSide, topField)
   });
 
   btnBottomLeftSide.addEventListener("click", () => {
-    bottomOneColumnSide.style.display = "inherit"
+    toogleDisplay(bottomOneColumnSide)
+    updateFieldGridFragmentation(bottomTwoColumnSide, bottomOneColumnSide, bottomField)
   });
 
   btnBottomRightSide.addEventListener("click", () => {
-    bottomTwoColumnSide.style.display = "inherit"
+    toogleDisplay(bottomTwoColumnSide)
+    updateFieldGridFragmentation(bottomTwoColumnSide, bottomOneColumnSide, bottomField)
   });
+}
+
+const updateFieldGridFragmentation = (rightSide, leftSide, gridContainer) => {
+  if (rightSide.style.display === "inherit" && leftSide.style.display === "inherit") {
+    gridContainer.style.gridTemplateColumns = '2fr 5fr 2fr';
+  } else if (rightSide.style.display === "inherit") {
+    gridContainer.style.gridTemplateColumns = 'min-content 5fr 2fr';
+  } else if (leftSide.style.display === "inherit") {
+    gridContainer.style.gridTemplateColumns = '2fr 5fr min-content';
+  } else {
+    gridContainer.style.gridTemplateColumns = 'min-content 5fr min-content';
+  }
+}
+
+const toogleDisplay = (htmlElement) => {
+  if (htmlElement.style.display === "inherit") {
+    htmlElement.style.display = "none";
+    htmlElement.style.display = null;
+  } else {
+    htmlElement.style.display = "inherit";
+  }
+}
+
+const toogleVisibility = (htmlElement) => {
+  if (htmlElement.style.visibility === "visible") {
+    htmlElement.style.visibility = "hidden";
+  } else {
+    htmlElement.style.visibility = "visible";
+  }
+}
+
+function isSmarthPhoneSize(windowWidth) {
+  var topField = document.getElementById("top-field");
+  var bottomField = document.getElementById("bottom-field");
+  console.log('LOL')
+  if (windowWidth.matches) {
+    topField.style = null;
+    bottomField.style = null;
+  }
+}
+
+function isPersonalComputerSize(windowWidth) {
+  var topField = document.getElementById("top-field");
+  var bottomField = document.getElementById("bottom-field");
+
+  var topTwoColumnSide = topField.querySelector("#twoColumnSide");
+  var topOneColumnSide = topField.querySelector("#oneColumnSide");
+  var bottomTwoColumnSide = bottomField.querySelector("#twoColumnSide");
+  var bottomOneColumnSide = bottomField.querySelector("#oneColumnSide");
+  if (windowWidth.matches) {
+    updateFieldGridFragmentation(topOneColumnSide, topTwoColumnSide, topField)
+    updateFieldGridFragmentation(bottomTwoColumnSide, bottomOneColumnSide, bottomField)
+  }
 }
 
 window.onload = function () {
@@ -279,4 +325,8 @@ window.onload = function () {
   gameBoardRender()
   navbarEvents()
   toggleSideSection()
+  var smarthPhoneSize = window.matchMedia("(min-width: 600px)")
+  smarthPhoneSize.addEventListener('change', isSmarthPhoneSize);
+  var personalComputerSize = window.matchMedia("(max-width: 600px)")
+  personalComputerSize.addEventListener('change', isPersonalComputerSize);
 }
