@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+:root {
+  --black: #000000;
+  --gray: #808080;
+  --white: #FFFFFF;
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--black);
+}
+
+.input-container {
+  display: inherit;
+  grid-template-columns: repeat(3, min-content);
+  align-items: center;
+}
+
+.icon-container {
+  height: 40px;
+  width: 40px;
+  background-color: var(--gray);
+  border-radius: 100%;
+}
+
+.input-container label {
+  display: inherit;
+  grid-template-columns: max-content;
+  padding: 0 10px;
+  color: var(--white);
+  font-size: large;
+}
+
+.input-container label::after {
+  content: 'Insert your user name';
+  display: block;
+}
+
+.input-container input {
+  height: 100%;
+  padding: 0 10px;
+  font-size: large;
+}
+
+@media only screen and (max-width: 768px) {
+  .input-container label::after {
+    content: 'User name';
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .input-container label::after {
+    content: '';
+    display: none;
+  }
+}
