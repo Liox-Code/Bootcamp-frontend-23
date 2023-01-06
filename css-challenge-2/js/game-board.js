@@ -242,31 +242,33 @@ const toggleSideSection = () => {
 
   var topTwoColumnSide = topField.querySelector("#twoColumnSide");
   var topOneColumnSide = topField.querySelector("#oneColumnSide");
+  var topCentralSection = topField.querySelector(".central-section");
   var bottomTwoColumnSide = bottomField.querySelector("#twoColumnSide");
   var bottomOneColumnSide = bottomField.querySelector("#oneColumnSide");
+  var bottomCentralSection = bottomField.querySelector(".central-section");
 
   btnTopLeftSide.addEventListener("click", () => {
     toogleDisplay(topTwoColumnSide)
-    updateFieldGridFragmentation(topOneColumnSide, topTwoColumnSide, topField)
+    updateFieldGridFragmentation(topOneColumnSide, topCentralSection, topTwoColumnSide, topField)
   });
 
   btnTopRightSide.addEventListener("click", () => {
     toogleDisplay(topOneColumnSide)
-    updateFieldGridFragmentation(topOneColumnSide, topTwoColumnSide, topField)
+    updateFieldGridFragmentation(topOneColumnSide, topCentralSection, topTwoColumnSide, topField)
   });
 
   btnBottomLeftSide.addEventListener("click", () => {
     toogleDisplay(bottomOneColumnSide)
-    updateFieldGridFragmentation(bottomTwoColumnSide, bottomOneColumnSide, bottomField)
+    updateFieldGridFragmentation(bottomTwoColumnSide, bottomCentralSection, bottomOneColumnSide, bottomField)
   });
 
   btnBottomRightSide.addEventListener("click", () => {
     toogleDisplay(bottomTwoColumnSide)
-    updateFieldGridFragmentation(bottomTwoColumnSide, bottomOneColumnSide, bottomField)
+    updateFieldGridFragmentation(bottomTwoColumnSide, bottomCentralSection, bottomOneColumnSide, bottomField)
   });
 }
 
-const updateFieldGridFragmentation = (rightSide, leftSide, gridContainer) => {
+const updateFieldGridFragmentation = (rightSide, centralSection, leftSide, gridContainer) => {
   if (rightSide.style.display === "inherit" && leftSide.style.display === "inherit") {
     gridContainer.style.gridTemplateColumns = '2fr 5fr 2fr';
   } else if (rightSide.style.display === "inherit") {
@@ -275,6 +277,12 @@ const updateFieldGridFragmentation = (rightSide, leftSide, gridContainer) => {
     gridContainer.style.gridTemplateColumns = '2fr 5fr min-content';
   } else {
     gridContainer.style.gridTemplateColumns = 'min-content 5fr min-content';
+  }
+
+  if (rightSide.style.display === "inherit" || leftSide.style.display === "inherit") {
+    centralSection.style.gridTemplateRows = '1fr 4fr 1fr';
+  } else {
+    centralSection.style.gridTemplateRows = 'min-content 4fr min-content';
   }
 }
 
@@ -295,27 +303,36 @@ const toogleVisibility = (htmlElement) => {
   }
 }
 
-function isSmarthPhoneSize(windowWidth) {
+function isPersonalComputerSize(windowWidth) {
   var topField = document.getElementById("top-field");
   var bottomField = document.getElementById("bottom-field");
-  console.log('LOL')
+  var topCentralSection = topField.querySelector(".central-section");
+  var bottomCentralSection = bottomField.querySelector(".central-section");
+
   if (windowWidth.matches) {
     topField.style = null;
     bottomField.style = null;
+    topCentralSection.style = null;
+    bottomCentralSection.style = null;
+    console.log('Personal Computer')
   }
 }
 
-function isPersonalComputerSize(windowWidth) {
+function isSmarthPhoneSize(windowWidth) {
   var topField = document.getElementById("top-field");
   var bottomField = document.getElementById("bottom-field");
 
   var topTwoColumnSide = topField.querySelector("#twoColumnSide");
   var topOneColumnSide = topField.querySelector("#oneColumnSide");
+  var topCentralSection = topField.querySelector(".central-section");
   var bottomTwoColumnSide = bottomField.querySelector("#twoColumnSide");
   var bottomOneColumnSide = bottomField.querySelector("#oneColumnSide");
+  var bottomCentralSection = bottomField.querySelector(".central-section");
+
+
   if (windowWidth.matches) {
-    updateFieldGridFragmentation(topOneColumnSide, topTwoColumnSide, topField)
-    updateFieldGridFragmentation(bottomTwoColumnSide, bottomOneColumnSide, bottomField)
+    updateFieldGridFragmentation(topOneColumnSide, topCentralSection, topTwoColumnSide, topField)
+    updateFieldGridFragmentation(bottomTwoColumnSide, bottomCentralSection, bottomOneColumnSide, bottomField)
   }
 }
 
@@ -325,8 +342,8 @@ window.onload = function () {
   gameBoardRender()
   navbarEvents()
   toggleSideSection()
-  var smarthPhoneSize = window.matchMedia("(min-width: 600px)")
-  smarthPhoneSize.addEventListener('change', isSmarthPhoneSize);
-  var personalComputerSize = window.matchMedia("(max-width: 600px)")
+  var personalComputerSize = window.matchMedia("(min-width: 600px)")
   personalComputerSize.addEventListener('change', isPersonalComputerSize);
+  var smarthPhoneSize = window.matchMedia("(max-width: 600px)")
+  smarthPhoneSize.addEventListener('change', isSmarthPhoneSize);
 }

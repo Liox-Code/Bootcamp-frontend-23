@@ -134,6 +134,10 @@
     grid-template-columns: min-content 5fr min-content;
   }
 
+  .central-section{
+    grid-template-rows: min-content 4fr min-content;
+  }
+
   .side-section{
     display: none;
   }
