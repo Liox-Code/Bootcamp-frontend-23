@@ -1,0 +1,134 @@
+.card-container {
+  display: grid;
+  justify-content: center;
+  padding: @gap-x01;
+  height: 100%;
+  background-color: @support-color-04;
+}
+
+.card {
+  display: inherit;
+  grid-template-rows: min-content auto min-content min-content;
+  padding: @gap-x01;
+  background-color: @yellow;
+}
+
+.header {
+  display: inherit;
+  grid-template-columns: 9fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  padding: @gap-x01 @gap-x01;
+  border: @border-size-x01 solid @white;
+  font-size: @x04;
+
+  h2 {
+    padding-bottom: @gap-x01;
+    border-bottom: @border-size-x01 solid @support-color-03;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-break: anywhere;
+    font-size: @x03;
+  }
+}
+
+.symbol {
+  justify-self: end;
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: @red;
+  border-radius: 100%;
+}
+
+.graphic-info {
+  display: grid;
+  grid-template-rows: 1fr 9fr;
+  gap: @gap-x01;
+  padding: 0 @gap-x02;
+  margin: @gap-x02 0;
+}
+
+.stars {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: @gap-x01;
+  width: 100%;
+  overflow: hidden;
+}
+
+.star {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: @orange;
+  border-radius: 100%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  display: inherit;
+  grid-template-rows: min-content 1fr min-content;
+  align-items: center;
+  padding: @gap-x01;
+  width: 100%;
+  border: @border-size-x02 solid @brown;
+  font-size: @x02;
+
+  h3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-break: anywhere;
+  }
+
+  p {
+    padding-bottom: @gap-x01;
+    border-bottom: @border-size-x01 solid @support-color-03;
+    line-break: anywhere;
+
+    height: 100%;
+    max-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.info-status-data {
+  display: inherit;
+  grid-template-columns: auto auto;
+  justify-content: end;
+  align-items: center;
+  overflow: hidden;
+  gap: @gap-x01;
+
+  span {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-break: anywhere;
+  }
+}
+
+.copyright {
+  display: flex;
+  justify-content: space-between;
+  margin-top: @gap-x01;
+  font-size: @x02;
+
+  span {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-break: anywhere;
+  }
+}
+

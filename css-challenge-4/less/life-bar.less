@@ -1,0 +1,49 @@
+.life-bar_container{
+    display: grid;
+    grid-template-columns: auto minmax(6.8rem, 8vw);
+    grid-template-rows: min-content 1fr 1fr;
+    height: 100%;
+    width: 100%;
+    padding: 16px;
+    gap: @gap-x01;
+    z-index: 10;
+    color: @white;
+    visibility: hidden;
+}
+
+.top_life-bar {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.bottom_life-bar{
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.duelist-name{
+    grid-area: 1 / 1 / 2 / 3;
+    display: grid;
+    align-items: center;
+    padding: @gap-x01;
+    font-size: @x05;
+    background-color: @support-color-02;
+    border-radius: @x01;
+}
+
+.life-points{
+    grid-area: 2 / 1 / 3 / 2;
+    display: inherit;
+    grid-template-columns: min-content min-content;
+    justify-content: space-between;
+    align-content: center;
+    padding: @gap-x02 @gap-x01;
+    font-size: @x04;
+    background-color: @support-color-02;
+    border-radius: @x01;
+}
+
+.duelist-picture{
+    grid-area: 2 / 2 / 4 / 3;
+    height: 100%;
+    width: 100%;
+    border: @border-size-x02 solid @support-color-02;
+}

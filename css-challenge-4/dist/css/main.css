@@ -1,0 +1,386 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+  background-color: #0B1020;
+}
+.website-container {
+  width: 100%;
+  height: 100%;
+}
+header {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0 2rem;
+  background-color: #0B1020;
+  box-shadow: 0px 0px 5px 4px #0181CC;
+}
+header .logo {
+  display: inherit;
+  align-content: center;
+  justify-items: baseline;
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+header .logo:hover {
+  color: #0181CC;
+}
+header .navbar {
+  display: inherit;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: 100%;
+  align-content: stretch;
+  align-items: stretch;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 2rem;
+}
+header .navbar a {
+  display: inherit;
+  align-content: center;
+  justify-items: baseline;
+  padding: 2rem;
+  text-decoration: none;
+  color: #0181CC;
+  cursor: pointer;
+}
+header .navbar a:hover {
+  color: #FFFFFF;
+  background-color: #0181CC;
+}
+.game-board {
+  display: grid;
+  align-content: space-evenly;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+.field {
+  display: inherit;
+  grid-template-columns: 2fr 5fr 2fr;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+}
+#top-field {
+  grid-template-areas: 'two-columns-section central-section one-column-section';
+}
+#bottom-field {
+  grid-template-areas: 'one-column-section central-section two-columns-section';
+}
+/*#top-field .central-section{
+  transform: rotate(180deg);
+} */
+#top-field .two-columns-section {
+  grid-template-areas: '. bottom-zone' '. central-zone' 'deck-zone top-zone';
+}
+#bottom-field .two-columns-section {
+  grid-template-areas: 'bottom-zone deck-zone' 'central-zone .' ' top-zone .';
+}
+.side-section {
+  display: inherit;
+  grid-template-rows: repeat(3, 1fr);
+}
+.one-column-section {
+  grid-area: one-column-section;
+  grid-template-columns: repeat(2, 1fr);
+}
+.two-columns-section {
+  grid-area: two-columns-section;
+  grid-template-columns: repeat(2, 1fr);
+}
+.bottom-zone {
+  grid-area: bottom-zone;
+}
+.top-zone {
+  grid-area: top-zone;
+}
+.deck-zone {
+  grid-area: deck-zone;
+}
+#top-field .one-column-section .zone {
+  grid-column: 1 / 2;
+}
+#bottom-field .one-column-section .zone {
+  grid-column: 2 / 3;
+}
+.btnContainer {
+  visibility: hidden;
+  display: inherit;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  align-content: center;
+  padding: 1rem;
+}
+.btnContainer button {
+  padding: 1rem;
+  background-color: #0181CC;
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+}
+.central-zone {
+  grid-area: central-zone;
+}
+.central-section {
+  grid-area: central-section;
+  display: inherit;
+  grid-template-rows: 1fr 4fr 1fr;
+}
+.zones-container {
+  grid-row: 2 / 3;
+  display: inherit;
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 0.4rem solid #0B1020;
+}
+.zone {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  border: 0.4rem solid #0B1020;
+  background-color: #FFFFFF;
+}
+.special-zone {
+  padding: 0.5rem;
+}
+.special-space {
+  width: 100%;
+  height: 100%;
+  background-color: #803182;
+  border: 0.4rem solid #0B1020;
+}
+@media only screen and (max-width: 600px) {
+  .field {
+    grid-template-columns: min-content 5fr min-content;
+  }
+  .central-section {
+    grid-template-rows: min-content 4fr min-content;
+  }
+  .side-section {
+    display: none;
+  }
+  .btnContainer {
+    visibility: visible;
+  }
+}
+footer {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 2rem;
+  background-color: #0B1020;
+  box-shadow: 0 0 5px 4px #0181CC;
+  color: #FFFFFF;
+}
+.card-container {
+  display: grid;
+  justify-content: center;
+  padding: 0.5rem;
+  height: 100%;
+  background-color: #262626;
+}
+.card {
+  display: inherit;
+  grid-template-rows: min-content auto min-content min-content;
+  padding: 0.5rem;
+  background-color: #e7af50;
+}
+.header {
+  display: inherit;
+  grid-template-columns: 9fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+  border: 0.1rem solid #FFFFFF;
+  font-size: 1.6rem;
+}
+.header h2 {
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid #0B1020;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-break: anywhere;
+  font-size: 1.2rem;
+}
+.symbol {
+  justify-self: end;
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: #bd1d3a;
+  border-radius: 100%;
+}
+.graphic-info {
+  display: grid;
+  grid-template-rows: 1fr 9fr;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  margin: 1rem 0;
+}
+.stars {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+  width: 100%;
+  overflow: hidden;
+}
+.star {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: #ff681f;
+  border-radius: 100%;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.info {
+  display: inherit;
+  grid-template-rows: min-content 1fr min-content;
+  align-items: center;
+  padding: 0.5rem;
+  width: 100%;
+  border: 0.2rem solid #654321;
+  font-size: 0.8rem;
+}
+.info h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-break: anywhere;
+}
+.info p {
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid #0B1020;
+  line-break: anywhere;
+  height: 100%;
+  max-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.info-status-data {
+  display: inherit;
+  grid-template-columns: auto auto;
+  justify-content: end;
+  align-items: center;
+  overflow: hidden;
+  gap: 0.5rem;
+}
+.info-status-data span {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-break: anywhere;
+}
+.copyright {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+.copyright span {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-break: anywhere;
+}
+.life-bar_container {
+  display: grid;
+  grid-template-columns: auto minmax(6.8rem, 8vw);
+  grid-template-rows: min-content 1fr 1fr;
+  height: 100%;
+  width: 100%;
+  padding: 16px;
+  gap: 0.5rem;
+  z-index: 10;
+  color: #FFFFFF;
+  visibility: hidden;
+}
+.top_life-bar {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.bottom_life-bar {
+  grid-area: 1 / 3 / 2 / 4;
+}
+.duelist-name {
+  grid-area: 1 / 1 / 2 / 3;
+  display: grid;
+  align-items: center;
+  padding: 0.5rem;
+  font-size: 2rem;
+  background-color: #01356A;
+  border-radius: 0.4rem;
+}
+.life-points {
+  grid-area: 2 / 1 / 3 / 2;
+  display: inherit;
+  grid-template-columns: min-content min-content;
+  justify-content: space-between;
+  align-content: center;
+  padding: 1rem 0.5rem;
+  font-size: 1.6rem;
+  background-color: #01356A;
+  border-radius: 0.4rem;
+}
+.duelist-picture {
+  grid-area: 2 / 2 / 4 / 3;
+  height: 100%;
+  width: 100%;
+  border: 0.2rem solid #01356A;
+}
+.card-desc {
+  grid-area: 2 / 1 / 4 / 2;
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  justify-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #01356A;
+  visibility: hidden;
+}
+.card-description_zone {
+  width: 100%;
+  max-width: 16rem;
+}
+.card-description_title {
+  color: #FFFFFF;
+  font-size: 1.2rem;
+}
+.card-description_description {
+  color: #FFFFFF;
+  font-size: 0.8rem;
+}
+.HUD {
+  position: fixed;
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-content: start;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
