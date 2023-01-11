@@ -1,0 +1,56 @@
+$primary-color: #0817C8; 
+$secondary-color: #0181CC; 
+$support-color-01: #241675; 
+$support-color-02: #01356A; 
+$support-color-03: #0B1020;
+$support-color-04: #262626;
+$space-color:#803182;
+$red: #bd1d3a;
+$blue: #6FFFE9;
+$orange: #ff681f;
+$brown: #654321;
+$yellow: #e7af50;
+$white: #FFFFFF;
+
+$x01: 0.4rem;
+$x02: 0.8rem;
+$x03: 1.2rem;
+$x04: 1.6rem;
+$x05: 2.0rem;
+$x06: 2.4rem;
+$x07: 2.8rem;
+$x08: 3.2rem;
+$x09: 3.6rem;
+$x10: 4.0rem;
+
+$border-size-x01: 0.1rem;
+$border-size-x02: 0.2rem;
+$border-size-x03: 0.3rem;
+$border-size-x04: 0.4rem;
+
+$gap-x01: 0.5rem;
+$gap-x02: 1rem;
+$gap-x03: 1.5rem;
+$gap-x04: 2rem;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+  background-color: $support-color-03;
+}
+
+.website-container {
+  width: 100%;
+  height: 100%;
+}
