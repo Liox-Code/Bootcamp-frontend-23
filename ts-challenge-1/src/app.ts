@@ -3,22 +3,26 @@ type Rol = 'Admin' | 'User'
 type Person = {
   name: string
   age: number,
-  rol:Rol
+  rol: Rol
+}
+
+type PokemonTypeData = {
+  name: string
+  url: string
 }
 
 type PokemonType = {
   slot: number
-  type: {
-      name: string
-      url: string
-  }
+  type: PokemonTypeData
+}
+
+type PokemonMoveData = {
+  name: string
+  url: string
 }
 
 type PokemonMove = {
-  move: {
-      name: string
-      url: string
-  }
+  move: PokemonMoveData
 }
 
 type PokemonSprites = {
@@ -37,7 +41,7 @@ interface Pokemon {
   name: string
   height: number
   weight: number
-  base_experience: number
+  base_experience?: number
   types: PokemonType[]
   moves: PokemonMove[]
   sprites: PokemonSprites
