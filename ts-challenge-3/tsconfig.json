@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": ["es2016", "dom"],
+    "module": "commonjs",    
+    "esModuleInterop": true,   
+    "target": "ES5",
+    "moduleResolution": "node",
+    "sourceMap":true,
+    "outDir": "dist",
+    "noImplicitAny": true,
+    "strictBindCallApply": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true
+  },
+  "include": ["src"]
+}
