@@ -27,13 +27,12 @@ var Pokemon = /** @class */ (function () {
 }());
 function checkPowerPoint(target, propertyKey, descriptor) {
     var original = descriptor.value;
-    console.log(target);
     descriptor.value = function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        console.log(this);
+        console.log("PP: ".concat(this.powerPointAvailable));
         if (this.powerPointAvailable <= 0) {
             console.log("".concat(this.name, " has no power points left and cannot attack!"));
             return;
