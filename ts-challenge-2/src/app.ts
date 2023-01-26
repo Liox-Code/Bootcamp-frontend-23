@@ -19,19 +19,22 @@ class Pokemon {
 }
 
 function checkPowerPoint (target: Object, propertyKey: string, descriptor: PropertyDescriptor) {
-  console.log(`target ${JSON.stringify(target, null, 3)}`)
-  console.log(`propertyKey ${JSON.stringify(propertyKey, null, 3)}`)
-  console.log(`descriptor ${JSON.stringify(descriptor, null, 3)}`)
-
+  const original = descriptor.value
+  console.log(target)
   descriptor.value = function (...args: any[]) {
-    console.log(`descriptor ${JSON.stringify(this, null, 3)}`)
-    this.powerPointAvailable
+    console.log(this)
+    if (this.powerPointAvailable <= 0) {
+      console.log(`${this.name} has no power points left and cannot attack!`)
+      return
+    }
+    original.apply(this, args)
   }
-
   return descriptor
 }
 
 const move = { name: 'thunderbolt', power: 90 }
-const pikachu = new Pokemon('pikachu', 1)
+const pikachu = new Pokemon('pikachu', 3)
+pikachu.figth(move)
+pikachu.figth(move)
 pikachu.figth(move)
 pikachu.figth(move)

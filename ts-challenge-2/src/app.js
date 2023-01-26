@@ -26,20 +26,25 @@ var Pokemon = /** @class */ (function () {
     return Pokemon;
 }());
 function checkPowerPoint(target, propertyKey, descriptor) {
-    console.log("target ".concat(JSON.stringify(target, null, 3)));
-    console.log("propertyKey ".concat(JSON.stringify(propertyKey, null, 3)));
-    console.log("descriptor ".concat(JSON.stringify(descriptor, null, 3)));
+    var original = descriptor.value;
+    console.log(target);
     descriptor.value = function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        console.log("descriptor ".concat(JSON.stringify(this, null, 3)));
-        this.powerPointAvailable;
+        console.log(this);
+        if (this.powerPointAvailable <= 0) {
+            console.log("".concat(this.name, " has no power points left and cannot attack!"));
+            return;
+        }
+        original.apply(this, args);
     };
     return descriptor;
 }
 var move = { name: 'thunderbolt', power: 90 };
-var pikachu = new Pokemon('pikachu', 1);
+var pikachu = new Pokemon('pikachu', 3);
+pikachu.figth(move);
+pikachu.figth(move);
 pikachu.figth(move);
 pikachu.figth(move);
