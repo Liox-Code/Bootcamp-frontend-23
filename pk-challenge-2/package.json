@@ -1,0 +1,15 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preyarn": "echo 'Error: Yarn is not supported. Please use npm instead.'"
+  },
+  "dependencies": {
+  },
+  "engines": {
+    "npm": "*",
+    "yarn": "please use npm"
+  }
+}
