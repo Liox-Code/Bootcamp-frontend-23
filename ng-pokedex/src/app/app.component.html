@@ -1,0 +1,57 @@
+<div class="components-container">
+
+  <ng-template #template1>
+    <div class="templateCard template1">1</div>
+  </ng-template>
+  <ng-template #template2>
+    <div class="templateCard template2">2</div>
+  </ng-template>
+  <ng-template #template3>
+    <div class="templateCard template3">3</div>
+  </ng-template>
+
+
+
+
+
+  <h2 class="title">ngTemplateOutlet example</h2>
+
+  <ng-container *ngTemplateOutlet="template2"></ng-container>
+
+
+
+
+
+
+
+
+
+
+  <h2 class="title">ngIf example</h2>
+
+  <ng-container *ngIf="showTemplate; then template1 else template2"></ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="title">ngFor example</h2>
+  <div *ngFor="let item of items">
+    <ng-container *ngTemplateOutlet="dinamicTemplate; context: { $implicit: item }"></ng-container>
+  </div>
+
+  <ng-template #dinamicTemplate let-templateItem>
+    <div class="templateCard template2">
+      {{templateItem.name}}
+    </div>
+  </ng-template>
+
+</div>
+
