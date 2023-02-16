@@ -1,0 +1,9 @@
+<div class="card" [ngStyle]="{ 'background-color': color }">
+  <img src="{{ imageUrl }}" alt="{{ title }}" class="card-image">
+  <div class="card-content">
+    <h2 class="card-title">{{ title }}</h2>
+    <ul class="card-tags">
+      <li *ngFor="let tag of tags">{{ tag }}</li>
+    </ul>
+  </div>
+</div>

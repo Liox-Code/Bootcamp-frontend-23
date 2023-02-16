@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -6,16 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-pokedex';
-  showTemplate= false
-  // items: { name: string }[] = [];
-  items = [{
-    name: "1"
-  },{
-    name: "2"
-  },{
-    name: "3"
-  },{
-    name: "4"
-  }]
+  pokemons: any;
+
+  constructor(private apiService: ApiService) { }
+
+  ngOnInit(): void {
+    this.apiService.getAllPokemons(20, 0).subscribe((response: any) => {
+      this.pokemons = response.results;
+      for (const pokemon of this.pokemons) {
+        this.apiService.getPokemonDetails(pokemon.url).subscribe((details: any) => {
+          pokemon.image = details.sprites.front_default;
+          pokemon.type = details.types.map((t: any) => t.type.name);
+          this.apiService.getPokemonDetails(details.species.url).subscribe((details: any) => {
+            pokemon.color = details.color.name;
+          });
+        });
+      }
+    });
+  }
+
 }
