@@ -1,0 +1,18 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "html"
+  ],
+  "eslint.options": {
+    "plugins": ["@angular-eslint/eslint-plugin", "@angular-eslint/eslint-plugin-template"],
+    "extends": ["plugin:@angular-eslint/recommended", "plugin:@angular-eslint/template/recommended"],
+    "parserOptions": {
+      "project": ["tsconfig.json", "e2e/tsconfig.json"],
+      "createDefaultProgram": true
+    }
+  }
+}

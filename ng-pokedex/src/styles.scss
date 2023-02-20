@@ -1,14 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@import './styles/variables.scss';
+
+@font-face {
+  font-family: 'RobotoRegular';
+  src: url('../src/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoBold';
+  src: url('../src/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: $primary-font;
+  font-weight: $font-weight-regular;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body {
+  max-width: 100vw;
+  background-color: black;
 }
 
 app-root {
   display: grid;
-  grid-template-columns: minmax(0, 1200px);
+  grid-template-columns: minmax(0, 1500px);
   justify-content: center;
   max-width: 100vw;
-  background-color: black;
 }
+
