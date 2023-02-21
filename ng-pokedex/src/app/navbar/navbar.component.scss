@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.nav-container {
+  width: 100%;
+  height: 80px;
+}
+
+nav {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  background-color: $background-white;
+}
+
+.menu {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 2rem;
+
+  a {
+    font-size: $font-size-medium;
+  }
+}

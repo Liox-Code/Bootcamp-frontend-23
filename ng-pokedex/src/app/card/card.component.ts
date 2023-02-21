@@ -11,7 +11,6 @@ export class CardComponent {
   @Input() id: number = 0;
   @Input() title: string = '';
   @Input() tags: string[] = [];
-  tilteErase = 'Fletchinder'
 
   pokemonColors = {
     red: 'bg-red',
