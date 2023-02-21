@@ -11,6 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { TypesPageComponent } from './pages/types-page/types-page.component';
 import { CardListComponent } from './components/card-list/card-list.component';
+import { SymbolListComponent } from './components/symbol-list/symbol-list.component';
+import { SymbolComponent } from './components/symbol/symbol.component';
+import { TypeDetailsComponent } from './components/type-details/type-details.component';
+import { PokemonPreviewComponent } from './components/pokemon-preview/pokemon-preview.component';
+import { RowInfoTagsComponent } from './components/row-info-tags/row-info-tags.component';
+import { InfoCardComponent } from './components/info-card/info-card.component';
+import { TagPokemonTypeComponent } from './components/tag-pokemon-type/tag-pokemon-type.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +27,14 @@ import { CardListComponent } from './components/card-list/card-list.component';
     SearchBarComponent,
     HomePageComponent,
     TypesPageComponent,
-    CardListComponent
+    CardListComponent,
+    SymbolListComponent,
+    SymbolComponent,
+    TypeDetailsComponent,
+    PokemonPreviewComponent,
+    RowInfoTagsComponent,
+    InfoCardComponent,
+    TagPokemonTypeComponent
   ],
   imports: [
     BrowserModule,

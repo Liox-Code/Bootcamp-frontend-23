@@ -1,0 +1,32 @@
+@import '../../../styles/variables.scss';
+
+.pokemon-types-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.pokemon-types-list-container {
+  display: inherit;
+  grid-template-rows: min-content min-content auto;
+  align-items: start;
+  gap: $gap-md;
+  padding: 6rem 0;
+  padding-right: 9rem;
+  background-color: white;
+
+  h2 {
+    font-size: $font-size-xlarge;
+    font-weight: $font-weight-bold;
+    text-decoration: underline;
+  }
+
+  p {
+    font-size: $font-size-small;
+  }
+}
+
+.pokemon-types-details-container {
+  background-color: aquamarine;
+}
