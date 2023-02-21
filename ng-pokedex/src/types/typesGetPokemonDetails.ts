@@ -1,17 +1,17 @@
 export interface GetPokemonDetails {
   id: number;
   order: number;
-  species: Species;
-  sprites: Sprites;
-  types: Type[];
+  species: PokemonSpecies;
+  sprites: PokemonSprites;
+  types: PokemonType[];
 }
 
-export interface Species {
+export interface PokemonSpecies {
   name: string;
   url: string;
 }
 
-export interface Sprites {
+export interface PokemonSprites {
   back_default: string;
   back_female?: any;
   back_shiny: string;
@@ -22,12 +22,12 @@ export interface Sprites {
   front_shiny_female?: any;
 }
 
-export interface Type {
+export interface PokemonType {
   slot: number;
-  type: TypeInfo;
+  type: PokemonTypeInfo;
 }
 
-export interface TypeInfo {
+export interface PokemonTypeInfo {
   name: string;
   url: string;
 }

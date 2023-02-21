@@ -1,16 +1,16 @@
 export interface GetPokemonColor {
   id: number;
   name: string;
-  names: Name[];
-  pokemon_species: Language[];
+  names: PokemonName[];
+  pokemon_species: PokemonLanguage[];
 }
 
-export interface Name {
-  language: Language;
+export interface PokemonName {
+  language: PokemonLanguage;
   name: string;
 }
 
-export interface Language {
+export interface PokemonLanguage {
   name: string;
   url: string;
 }

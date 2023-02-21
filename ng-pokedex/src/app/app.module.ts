@@ -18,6 +18,7 @@ import { PokemonPreviewComponent } from './components/pokemon-preview/pokemon-pr
 import { RowInfoTagsComponent } from './components/row-info-tags/row-info-tags.component';
 import { InfoCardComponent } from './components/info-card/info-card.component';
 import { TagPokemonTypeComponent } from './components/tag-pokemon-type/tag-pokemon-type.component';
+import { BadgeComponent } from './components/badge/badge.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TagPokemonTypeComponent } from './components/tag-pokemon-type/tag-pokem
     PokemonPreviewComponent,
     RowInfoTagsComponent,
     InfoCardComponent,
-    TagPokemonTypeComponent
+    TagPokemonTypeComponent,
+    BadgeComponent
   ],
   imports: [
     BrowserModule,

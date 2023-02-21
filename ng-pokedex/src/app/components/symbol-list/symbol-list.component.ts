@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { PokemonTypeDetails } from '../../../types/typesPokemon';
 
 @Component({
   selector: 'app-symbol-list',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./symbol-list.component.scss']
 })
 export class SymbolListComponent {
+  @Input() pokemonTypes: PokemonTypeDetails[] = []
 
+  ngAfcterViewInit(){
+    console.log('this.pokemonTypes')
+  }
 }

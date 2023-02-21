@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { GetPokemonsResult } from '../../../types/typesGetPokemons';
-import { GetPokemonDetails, Type } from '../../../types/typesGetPokemonDetails';
+import { GetPokemonDetails, PokemonType } from '../../../types/typesGetPokemonDetails';
 import { Pokemon } from '../../../types/typesPokemon';
 import { GetPokemonSpecies } from '../../../types/typesGetPokemonSpecies';
 
@@ -29,7 +29,7 @@ export class HomePageComponent {
         this.apiService.getPokemonDetails(pokemonItem.url).subscribe((details: GetPokemonDetails) => {
           pokemon.id = details.id;
           pokemon.image = details.sprites.front_default;
-          pokemon.type = details.types.map((type: Type) => type.type.name);
+          pokemon.type = details.types.map((type: PokemonType) => type.type.name);
           this.apiService.getPokemonSpecies(details.species.url).subscribe((species: GetPokemonSpecies) => {
             pokemon.color = species.color.name;
           });

@@ -2,14 +2,18 @@
   <div class="pokemon-types-list-container">
     <h2>Pokémon types:</h2>
     <p>Sekect a type of which you want to know its characteristics.</p>
-    <app-symbol-list></app-symbol-list>
+    <app-symbol-list [pokemonTypes] = "pokemonTypes"></app-symbol-list>
   </div>
   <div class="pokemon-types-details-container">
-    <div class="pokemon-icon-circular-container"></div>
+    <app-badge></app-badge>
     <div class="pokemons-list">
+      <div class="pokemon-item"></div>
+      <div class="pokemon-item"></div>
       <div class="pokemon-item"></div>
     </div>
     <div class="pokemon-info-container">
+      <div class="pokemon-info-row"></div>
+      <div class="pokemon-info-row"></div>
       <div class="pokemon-info-row"></div>
     </div>
   </div>

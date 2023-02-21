@@ -1,8 +1,8 @@
 export interface GetPokemonSpecies {
-  color: Color;
+  color: PokemonColor;
 }
 
-export interface Color {
+export interface PokemonColor {
   name: string;
   url: string;
 }

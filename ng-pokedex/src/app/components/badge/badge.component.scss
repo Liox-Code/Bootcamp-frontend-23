@@ -1,0 +1,19 @@
+@import '../../../styles/variables.scss';
+
+.badge-container {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 24rem;
+  width: 24rem;
+  background-color: aqua;
+  border-radius: $border-radius-large;
+  border-radius: 50%;
+
+  .search-icon {
+    color: black;
+    font-size: 16rem;
+    height: 16rem;
+    width: 16rem;
+  }
+}
