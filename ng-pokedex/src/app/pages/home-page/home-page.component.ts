@@ -11,7 +11,7 @@ import { GetPokemonSpecies } from '../../../types/typesGetPokemonSpecies';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-  allPokemons: GetPokemonsResult[] = [];
+  allPokemons: GetPokemonsResult[] = []
   pokemons: Pokemon[] = []
 
   constructor(private apiService: ApiService) { }
