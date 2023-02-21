@@ -8,13 +8,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 
 import { MatIconModule } from '@angular/material/icon';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     NavbarComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

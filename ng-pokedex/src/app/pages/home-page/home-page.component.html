@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<app-search-bar></app-search-bar>
+<div class="card-list">
+  <app-card *ngFor="let pokemon of pokemons"
+            [imageUrl]="pokemon.image"
+            [color]="pokemon.color"
+            [id]="pokemon.id"
+            [title]="pokemon.name"
+            [tags]="pokemon.type"></app-card>
+</div>
+
