@@ -1,0 +1,16 @@
+@import '../../../styles/variables.scss';
+
+select {
+  font-size: $font-size-small;
+  border-radius: $border-radius-small;
+  padding: $padding-sm;
+  background-color: $background-default-input;
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+  option {
+    font-size: $font-size-small;
+    cursor: pointer;
+  }
+}

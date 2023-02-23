@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../services/api.service';
-import { GetPokemonsResult } from '../../../types/typesGetPokemons';
-import { GetPokemonDetails, PokemonType } from '../../../types/typesGetPokemonDetails';
+import { PokemonService } from '../../services/pokemon/pokemon.service';
+import { RequestGeneration, RequestPokemonDetails, RequestPokemonSpecies, RequestNameUri, RequestSlotType } from '../../../types/pokemonRequest.types';
 import { Pokemon } from '../../../types/typesPokemon';
-import { GetPokemonSpecies } from '../../../types/typesGetPokemonSpecies';
 
 @Component({
   selector: 'app-home-page',
@@ -11,32 +9,54 @@ import { GetPokemonSpecies } from '../../../types/typesGetPokemonSpecies';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-  allPokemons: GetPokemonsResult[] = []
+  pokemonGenerations: RequestGeneration[] = []
+  allPokemons: RequestNameUri[] = []
   pokemons: Pokemon[] = []
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: PokemonService) { }
 
   ngOnInit(): void {
-    this.apiService.getAllPokemons(20, 0).subscribe((pokemonLists: GetPokemonsResult[]) => {
-      for (const pokemonItem of pokemonLists) {
-        const pokemon: Pokemon = {
-          id: 0,
-          image: '',
-          name: pokemonItem.name,
-          color: '',
-          type: [],
-        }
-        this.apiService.getPokemonDetails(pokemonItem.url).subscribe((details: GetPokemonDetails) => {
-          pokemon.id = details.id;
-          pokemon.image = details.sprites.front_default;
-          pokemon.type = details.types.map((type: PokemonType) => type.type.name);
-          this.apiService.getPokemonSpecies(details.species.url).subscribe((species: GetPokemonSpecies) => {
-            pokemon.color = species.color.name;
-          });
-        });
+    this.getPokemons();
+  }
 
-        this.pokemons.push(pokemon)
+  getPokemons(): void {
+    this.apiService.getAllPokemons(20, 0).subscribe((pokemonLists: RequestNameUri[]) => {
+      for (const pokemonItem of pokemonLists) {
+        this.getPokemonDetailsAndSpecies(pokemonItem.url);
       }
     });
+  }
+
+  getPokemonDetailsAndSpecies(pokemonUrl: string): void {
+    this.apiService.getPokemonDetails(pokemonUrl).subscribe((details: RequestPokemonDetails) => {
+      const pokemon = this.createPokemon(details);
+      this.getPokemonSpecies(pokemon, details.species.url);
+    });
+  }
+
+  getPokemonSpecies(pokemon: Pokemon, speciesUrl: string): void {
+    this.apiService.getPokemonSpecies(speciesUrl).subscribe((species: RequestPokemonSpecies) => {
+      pokemon.color = species.color.name;
+      this.addPokemonToList(pokemon);
+    });
+  }
+
+  createPokemon(details: RequestPokemonDetails): Pokemon {
+    const pokemon: Pokemon = {
+      id: details.id,
+      image: details.sprites.other['official-artwork'].front_default,
+      name: details.species.name,
+      color: '',
+      type: details.types.map((type: RequestSlotType) => type.type.name),
+    };
+    return pokemon;
+  }
+
+  addPokemonToList(pokemon: Pokemon): void {
+    this.pokemons.push(pokemon);
+  }
+
+  selectGeneration(selectedGeneration: string){
+    console.log(selectedGeneration)
   }
 }

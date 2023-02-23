@@ -2,16 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { GetPokemons, GetPokemonsResult } from '../../types/typesGetPokemons';
-import { GetAllPokemonTypes, GetPokemonType, PokemonTypeResults } from '../../types/typesGetPokemonType';
-import { GetPokemonDetails } from '../../types/typesGetPokemonDetails';
-import { GetPokemonSpecies } from '../../types/typesGetPokemonSpecies';
-import { PokemonTypeDetails } from '../../types/typesPokemon';
+import { PokemonTypeDetails } from '../../../types/typesPokemon';
+import { AllResults, RequestPokemonDetails, RequestPokemonSpecies, RequestPokemonType, RequestNameUri } from '../../../types/pokemonRequest.types';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class PokemonService {
 
   private apiUrl = 'https://pokeapi.co/api/v2/';
 
@@ -54,12 +51,12 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getAllPokemons(limit: number, offset: number): Observable<GetPokemonsResult[]> {
+  getAllPokemons(limit: number, offset: number): Observable<RequestNameUri[]> {
     const url = `${this.apiUrl}pokemon?limit=${limit}&offset=${offset}`;
-    return this.http.get<GetPokemons>(url).pipe(map((res) => { return this.parseAllPokemons(res) }))
+    return this.http.get<AllResults>(url).pipe(map((res) => { return this.parseAllPokemons(res) }))
   }
 
-  private parseAllPokemons(response: GetPokemons): GetPokemonsResult[] {
+  private parseAllPokemons(response: AllResults): RequestNameUri[] {
     const parsedAllPokemonsData = response.results.map(
       (result) => {
         return result
@@ -68,31 +65,31 @@ export class ApiService {
     return parsedAllPokemonsData
   }
 
-  getPokemonDetails(url: string): Observable<GetPokemonDetails> {
-    return this.http.get<GetPokemonDetails>(url).pipe(map((res) => { return this.parsePokemonDetails(res) }))
+  getPokemonDetails(url: string): Observable<RequestPokemonDetails> {
+    return this.http.get<RequestPokemonDetails>(url).pipe(map((res) => { return this.parsePokemonDetails(res) }))
   }
 
-  private parsePokemonDetails(response: GetPokemonDetails): GetPokemonDetails {
+  private parsePokemonDetails(response: RequestPokemonDetails): RequestPokemonDetails {
     const pokemonDetails = response
     return pokemonDetails
   }
 
-  getPokemonSpecies(url: string): Observable<GetPokemonSpecies> {
-    return this.http.get<GetPokemonSpecies>(url).pipe(map((res) => { return this.parsePokemonSpecies(res) }))
+  getPokemonSpecies(url: string): Observable<RequestPokemonSpecies> {
+    return this.http.get<RequestPokemonSpecies>(url).pipe(map((res) => { return this.parsePokemonSpecies(res) }))
   }
 
-  private parsePokemonSpecies(response: GetPokemonSpecies): GetPokemonSpecies {
+  private parsePokemonSpecies(response: RequestPokemonSpecies): RequestPokemonSpecies {
     const pokemonSpecies = response
     pokemonSpecies.color.name = this.colors[pokemonSpecies.color.name]
     return pokemonSpecies
   }
 
-  getAllPokemonTypes(): Observable<PokemonTypeResults[]> {
+  getAllPokemonTypes(): Observable<RequestNameUri[]> {
     const url = `${this.apiUrl}type`;
-    return this.http.get<GetAllPokemonTypes>(url).pipe(map((res) => { return this.parseAllPokemonTypes(res) }))
+    return this.http.get<AllResults>(url).pipe(map((res) => { return this.parseAllPokemonTypes(res) }))
   }
 
-  private parseAllPokemonTypes(response: GetAllPokemonTypes): PokemonTypeResults[] {
+  private parseAllPokemonTypes(response: AllResults): RequestNameUri[] {
     const parsedAllPokemonsData = response.results.map(
       (result) => {
         return result
@@ -102,10 +99,10 @@ export class ApiService {
   }
 
   getPokemonTypes(url: string): Observable<PokemonTypeDetails> {
-    return this.http.get<GetPokemonType>(url).pipe(map((res) => { return this.parsePokemonTypes(res) }))
+    return this.http.get<RequestPokemonType>(url).pipe(map((res) => { return this.parsePokemonTypes(res) }))
   }
 
-  private parsePokemonTypes(response: GetPokemonType): PokemonTypeDetails {
+  private parsePokemonTypes(response: RequestPokemonType): PokemonTypeDetails {
     const { id, name, damage_relations, pokemon} = response
 
     const {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from '@app/services/api.service';
-import { GetPokemonType, PokemonTypeResults } from '../../../types/typesGetPokemonType';
+import { PokemonService } from '@app/services/pokemon/pokemon.service';
+import { RequestNameUri } from '../../../types/pokemonRequest.types';
 import { PokemonTypeDetails } from '../../../types/typesPokemon';
 
 @Component({
@@ -11,10 +11,10 @@ import { PokemonTypeDetails } from '../../../types/typesPokemon';
 export class TypesPageComponent {
   pokemonTypes: PokemonTypeDetails[] = []
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: PokemonService) { }
 
   ngOnInit(): void {
-    this.apiService.getAllPokemonTypes().subscribe((pokemonTypes: PokemonTypeResults[]) => {
+    this.apiService.getAllPokemonTypes().subscribe((pokemonTypes: RequestNameUri[]) => {
       for (const typeItem of pokemonTypes) {
         this.apiService.getPokemonTypes(typeItem.url).subscribe((pokemonType: PokemonTypeDetails) => {
           this.pokemonTypes.push(pokemonType)

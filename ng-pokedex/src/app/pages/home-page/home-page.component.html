@@ -1,3 +1,4 @@
 <app-navbar></app-navbar>
 <app-search-bar></app-search-bar>
+<app-dropdown [options]="pokemonGenerations" (selectedOption)="selectGeneration($event)"></app-dropdown>
 <app-card-list [pokemons]="pokemons"></app-card-list>
