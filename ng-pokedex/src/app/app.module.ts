@@ -20,6 +20,7 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
 import { TagPokemonTypeComponent } from './components/tag-pokemon-type/tag-pokemon-type.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     InfoCardComponent,
     TagPokemonTypeComponent,
     BadgeComponent,
-    DropdownComponent
+    DropdownComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
