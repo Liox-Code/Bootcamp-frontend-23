@@ -19,8 +19,4 @@ export class CardComponent {
     blue: 'bg-blue',
     yellow: 'bg-yellow'
   };
-
-  ngAfterViewInit() {
-    console.log(this.color)
-  }
 }

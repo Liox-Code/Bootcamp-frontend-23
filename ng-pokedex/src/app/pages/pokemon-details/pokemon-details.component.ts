@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Pokemon } from '../../../types/typesPokemon';
+import { AboutCardComponent } from '@app/components/about-card/about-card.component';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -16,4 +17,13 @@ export class PokemonDetailsComponent {
     color: 'container-red'
   }
 
+  components = [
+    {
+      component: AboutCardComponent,
+      tabLabel: 'Pokédex Data',
+      data: {
+        pokemonInfo: 'Information'
+      }
+    }
+  ]
 }

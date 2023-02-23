@@ -7,6 +7,7 @@
     <div class="type-icon-container">
       <app-badge *ngFor="let pokemonType of pokemonDetails.type" [iconName]="pokemonType" [iconColor]="pokemonDetails.color"></app-badge>
     </div>
+    <app-tab-container [components]="components"></app-tab-container>
   </div>
   <div [ngClass]="[pokemonDetails.color ,'image-conainer']">
     <img [src]="pokemonDetails.image" alt="">

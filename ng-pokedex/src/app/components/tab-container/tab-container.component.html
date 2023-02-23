@@ -1,0 +1,13 @@
+<mat-tab-group class="tab-container" (selectedTabChange)="onTabChanged($event)">
+
+  <mat-tab
+    *ngFor="let component of components"
+    [label]="component.tabLabel">
+
+    <ng-container
+      *ngComponentOutlet="component.component; injector: createInjector(component.data);"
+    ></ng-container>
+
+  </mat-tab>
+
+</mat-tab-group>

@@ -22,6 +22,12 @@ import { BadgeComponent } from './components/badge/badge.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PokemonDetailsComponent } from './pages/pokemon-details/pokemon-details.component';
+import { TabContainerComponent } from './components/tab-container/tab-container.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { AboutCardComponent } from './components/about-card/about-card.component';
+
 
 @NgModule({
   declarations: [
@@ -42,12 +48,17 @@ import { PokemonDetailsComponent } from './pages/pokemon-details/pokemon-details
     BadgeComponent,
     DropdownComponent,
     NotFoundComponent,
-    PokemonDetailsComponent
+    PokemonDetailsComponent,
+    TabContainerComponent,
+    AboutCardComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    MatIconModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatTabsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
