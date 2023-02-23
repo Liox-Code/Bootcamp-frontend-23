@@ -10,7 +10,7 @@ describe('RowInfoTagsComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ RowInfoTagsComponent ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(RowInfoTagsComponent);
     component = fixture.componentInstance;

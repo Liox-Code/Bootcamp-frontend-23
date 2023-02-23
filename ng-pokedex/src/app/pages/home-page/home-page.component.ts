@@ -1,8 +1,18 @@
-import { Component } from '@angular/core';
-import { PokemonService } from '../../services/pokemon/pokemon.service';
-import { GenerationService } from '../../services/generation/generation.service';
-import { RequestGeneration, RequestPokemonDetails, RequestPokemonSpecies, RequestNameUri, RequestSlotType } from '../../../types/pokemonRequest.types';
-import { Pokemon } from '../../../types/typesPokemon';
+import {
+  Component
+} from '@angular/core';
+import {
+  PokemonService
+} from '../../services/pokemon/pokemon.service';
+import {
+  GenerationService
+} from '../../services/generation/generation.service';
+import {
+  RequestGeneration, RequestPokemonDetails, RequestPokemonSpecies, RequestNameUri, RequestSlotType
+} from '../../../types/pokemonRequest.types';
+import {
+  Pokemon
+} from '../../../types/typesPokemon';
 
 @Component({
   selector: 'app-home-page',
@@ -10,7 +20,7 @@ import { Pokemon } from '../../../types/typesPokemon';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-  searchQuery: string = ''
+  searchQuery = ''
   pokemonGenerations: RequestGeneration[] = []
   pokemons: Pokemon[] = []
 

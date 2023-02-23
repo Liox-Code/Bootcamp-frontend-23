@@ -10,7 +10,7 @@ describe('TypesPageComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ TypesPageComponent ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TypesPageComponent);
     component = fixture.componentInstance;

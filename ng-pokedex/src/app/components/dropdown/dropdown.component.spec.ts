@@ -10,7 +10,7 @@ describe('DropdownComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ DropdownComponent ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(DropdownComponent);
     component = fixture.componentInstance;

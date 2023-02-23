@@ -10,7 +10,7 @@ describe('SymbolComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ SymbolComponent ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SymbolComponent);
     component = fixture.componentInstance;

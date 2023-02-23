@@ -10,7 +10,7 @@ describe('TagPokemonTypeComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ TagPokemonTypeComponent ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TagPokemonTypeComponent);
     component = fixture.componentInstance;

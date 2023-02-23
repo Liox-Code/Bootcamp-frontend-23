@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component, Input
+} from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -6,10 +8,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  @Input() imageUrl: string = '';
-  @Input() color: string = '';
-  @Input() id: number = 0;
-  @Input() title: string = '';
+  @Input() imageUrl = '';
+  @Input() color = '';
+  @Input() id = 0;
+  @Input() title = '';
   @Input() tags: string[] = [];
 
   pokemonColors = {
@@ -17,9 +19,6 @@ export class CardComponent {
     blue: 'bg-blue',
     yellow: 'bg-yellow'
   };
-
-  constructor(){
-  }
 
   ngAfterViewInit() {
     console.log(this.color)

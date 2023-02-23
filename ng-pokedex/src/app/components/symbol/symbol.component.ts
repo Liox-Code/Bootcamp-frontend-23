@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./symbol.component.scss']
 })
 export class SymbolComponent {
-  @Input() pokemonIcon: string = ''
+  @Input() pokemonIcon = ''
 
 }

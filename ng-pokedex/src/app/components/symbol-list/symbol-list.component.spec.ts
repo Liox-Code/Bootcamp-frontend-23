@@ -10,7 +10,7 @@ describe('SymbolListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ SymbolListComponent ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SymbolListComponent);
     component = fixture.componentInstance;
