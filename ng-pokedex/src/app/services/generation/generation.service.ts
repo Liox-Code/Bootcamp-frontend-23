@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AllResults, RequestPokemonDetails, RequestPokemonSpecies, RequestPokemonType, RequestNameUri } from '../../../types/pokemonRequest.types';
 import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { RequestGeneration } from '../../../types/pokemonRequest.types';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,13 @@ export class GenerationService {
       }
     );
     return parseAllGenerationsData
+  }
+
+  getGenerationDetails(generationURL: string): Observable<RequestGeneration> {
+    return this.http.get<RequestGeneration>(generationURL).pipe(map((res) => { return this.parseGenerationDetails(res) }))
+  }
+
+  private parseGenerationDetails(response: RequestGeneration): RequestGeneration {
+    return response
   }
 }

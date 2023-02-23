@@ -65,7 +65,8 @@ export class PokemonService {
     return parsedAllPokemonsData
   }
 
-  getPokemonDetails(url: string): Observable<RequestPokemonDetails> {
+  getPokemonDetails(pokemonNumber: string): Observable<RequestPokemonDetails> {
+    const url = `${this.apiUrl}pokemon/${pokemonNumber}`;
     return this.http.get<RequestPokemonDetails>(url).pipe(map((res) => { return this.parsePokemonDetails(res) }))
   }
 
@@ -74,7 +75,8 @@ export class PokemonService {
     return pokemonDetails
   }
 
-  getPokemonSpecies(url: string): Observable<RequestPokemonSpecies> {
+  getPokemonSpecies(pokemonNumber: number): Observable<RequestPokemonSpecies> {
+    const url = `${this.apiUrl}pokemon-species/${pokemonNumber}`;
     return this.http.get<RequestPokemonSpecies>(url).pipe(map((res) => { return this.parsePokemonSpecies(res) }))
   }
 

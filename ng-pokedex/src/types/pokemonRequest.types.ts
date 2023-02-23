@@ -35,7 +35,9 @@ interface Officialartwork {
 }
 
 export interface RequestPokemonSpecies {
+  id: number;
   color: RequestNameUri;
+  generation: RequestNameUri;
 }
 
 export interface RequestPokemonColor {

@@ -2,7 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 
 type dropDownOptions = {
-  name: string
+  id: number;
+  name: string;
 }
 
 @Component({
@@ -14,11 +15,15 @@ type dropDownOptions = {
 export class DropdownComponent {
 
   @Input() options: dropDownOptions[] = []
-  @Output() selectedOption = new EventEmitter<string>();
+  @Output() selectedOption = new EventEmitter();
 
   onChange(event: Event) {
     const target = event.target as HTMLSelectElement;
     const value = target.value;
-    this.selectedOption.emit(value)
+    const selectedOption = this.options.find((option) => {
+      const optionId = option.id.toString()
+      return optionId === value
+    })
+    this.selectedOption.emit(selectedOption)
   }
 }
