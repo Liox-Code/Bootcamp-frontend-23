@@ -10,6 +10,7 @@ import { Pokemon } from '../../../types/typesPokemon';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
+  searchQuery: string = ''
   pokemonGenerations: RequestGeneration[] = []
   pokemons: Pokemon[] = []
 
@@ -21,6 +22,15 @@ export class HomePageComponent {
   ngOnInit(): void {
     this.getPokemons();
     this.getGenerations()
+  }
+
+  get filteredItems() {
+    return this.pokemons.filter(pokemon => {
+      const idMatch = pokemon.id.toString().toLowerCase().includes(this.searchQuery.toLowerCase())
+      const textMatch = pokemon.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+
+      return idMatch || textMatch
+    });
   }
 
   getPokemons(): void {
@@ -90,5 +100,10 @@ export class HomePageComponent {
     //   return pokemon.generation === selectedGeneration.name
     // })
     // console.log(pokemonsInGeneration)
+  }
+
+
+  onSearchChange(searchQuery: string) {
+    this.searchQuery = searchQuery
   }
 }
