@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-badge',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./badge.component.scss']
 })
 export class BadgeComponent {
+  @Input() iconName = ''
+  @Input() iconColor = ''
 
+  ngOnInit(): void {
+    console.log(this.iconName)
+    console.log(this.iconColor)
+  }
 }

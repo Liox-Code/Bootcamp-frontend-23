@@ -4,16 +4,15 @@
   display: grid;
   justify-items: center;
   align-items: center;
-  height: 24rem;
-  width: 24rem;
-  background-color: aqua;
-  border-radius: $border-radius-large;
-  border-radius: 50%;
+  width: min-content;
+  aspect-ratio: 1;
+  border-radius: $border-radius-circle;
+  padding: $padding-sm;
 
-  .search-icon {
-    color: black;
-    font-size: 16rem;
-    height: 16rem;
-    width: 16rem;
+  .badge-icon {
+    color: $background-white;
+    font-size: $font-size-x4;
+    height: $font-size-x4;
+    width: $font-size-x4;
   }
 }

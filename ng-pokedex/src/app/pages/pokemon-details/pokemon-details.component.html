@@ -1,0 +1,18 @@
+<div class="pokemon-details-container">
+  <div class="info-container">
+    <mat-icon class="arrow_back-icon" aria-hidden="false" aria-label="arrow_back icon" fontIcon="arrow_back"></mat-icon>
+    <h3>#{{pokemonDetails.id}}</h3>
+    <h2>{{pokemonDetails.name}}</h2>
+    <span>{{pokemonDetails.generation}}</span>
+    <div class="type-icon-container">
+      <app-badge *ngFor="let pokemonType of pokemonDetails.type" [iconName]="pokemonType" [iconColor]="pokemonDetails.color"></app-badge>
+    </div>
+  </div>
+  <div [ngClass]="[pokemonDetails.color ,'image-conainer']">
+    <img [src]="pokemonDetails.image" alt="">
+    <div class="action-container">
+      <button class="previous-button">Previous</button>
+      <button class="next-button">Next</button>
+    </div>
+  </div>
+</div>

@@ -21,6 +21,7 @@ import { TagPokemonTypeComponent } from './components/tag-pokemon-type/tag-pokem
 import { BadgeComponent } from './components/badge/badge.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { PokemonDetailsComponent } from './pages/pokemon-details/pokemon-details.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     TagPokemonTypeComponent,
     BadgeComponent,
     DropdownComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PokemonDetailsComponent
   ],
   imports: [
     BrowserModule,

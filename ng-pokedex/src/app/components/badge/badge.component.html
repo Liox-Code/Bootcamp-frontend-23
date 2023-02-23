@@ -1,3 +1,3 @@
-<div class="badge-container">
-  <mat-icon class="search-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
+<div [ngClass]="[iconColor, 'badge-container']">
+  <mat-icon class="badge-icon" aria-hidden="false" aria-label="badge icon" [svgIcon]="iconName"></mat-icon>
 </div>

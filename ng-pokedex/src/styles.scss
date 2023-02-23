@@ -39,3 +39,57 @@ app-root {
   min-height: 100vh;
 }
 
+
+.container-black {
+  background-color: $pokemon-black;
+}
+
+.container-blue {
+  background-color: $pokemon-blue;
+}
+
+.container-brown {
+  background-color: $pokemon-brown;
+}
+
+.container-gray {
+  background-color: $pokemon-gray;
+}
+
+.container-green {
+  background-color: $pokemon-green;
+}
+
+.container-pink {
+  background-color: $pokemon-pink;
+}
+
+.container-purple {
+  background-color: $pokemon-purple;
+}
+
+.container-red {
+  background-color: $pokemon-red;
+}
+
+.container-white {
+  background-color: $pokemon-white;
+.card-content {
+  color: black;
+}
+.card-tags {
+  color: white;
+}
+}
+
+.container-yellow {
+  background-color: $pokemon-yellow;
+}
+
+.container-cyan {
+  background-color: $pokemon-cyan;
+}
+
+.container-unknown {
+  background-color: $pokemon-unknown;
+}
