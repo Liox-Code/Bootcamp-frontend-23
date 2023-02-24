@@ -11,19 +11,19 @@
   display: inherit;
   grid-template-rows: min-content min-content auto;
   align-items: start;
-  gap: $gap-x3;
+  gap: $gap-x03;
   padding: 6rem 0;
   padding-right: 9rem;
   background-color: white;
 
   h2 {
-    font-size: $font-size-x4;
+    font-size: $font-size-x04;
     font-weight: $font-weight-bold;
     text-decoration: underline;
   }
 
   p {
-    font-size: $font-size-x1;
+    font-size: $font-size-x01;
   }
 }
 

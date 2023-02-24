@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Pokemon } from '../../../types/typesPokemon';
 import { AboutCardComponent } from '@app/components/about-card/about-card.component';
+import { StatsComponent } from '@app/components/stats/stats.component';
+import { InfoChartCardComponent } from '@app/components/info-card/info-chart-card.component';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -24,6 +26,20 @@ export class PokemonDetailsComponent {
       data: {
         pokemonInfo: 'Information'
       }
-    }
+    },
+    {
+      component: StatsComponent,
+      tabLabel: 'Stats',
+      data: {
+        pokemonInfo: 'Information'
+      }
+    },
+    {
+      component: InfoChartCardComponent,
+      tabLabel: 'Evolution',
+      data: {
+        pokemonInfo: 'Information'
+      }
+    },
   ]
 }

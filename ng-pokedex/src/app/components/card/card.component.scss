@@ -37,13 +37,13 @@
 }
 
 .card-number {
-  font-size: $font-size-x2;
+  font-size: $font-size-x02;
 }
 
 .card-title {
-  font-size: $font-size-x4;
+  font-size: $font-size-x04;
   font-weight: bold;
-  font-size: $font-size-x4;
+  font-size: $font-size-x04;
 
   &::first-letter {
     text-transform: uppercase;
@@ -54,7 +54,7 @@
   display: flex;
   gap: 4px;
   padding-top: 20px;
-  font-size: $font-size-x1;
+  font-size: $font-size-x01;
   list-style: none;
   & li {
     background-color: red;

@@ -1,1 +1,12 @@
-<p>pokemon-preview works!</p>
+<div class="pokemon-preview-container">
+  <div class="image-container">
+    <img [src]="data.image" alt="{{data.name}} image">
+  </div>
+  <div class="info-container">
+    <h3>#{{data.id}}</h3>
+    <h2>{{data.name}}</h2>
+    <div class="type-icon-container">
+      <app-badge *ngFor="let pokemonType of data.type" [iconName]="pokemonType" [iconColor]="data.color"></app-badge>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 @import '../../../styles/variables.scss';
 
 select {
-  font-size: $font-size-x1;
+  font-size: $font-size-x01;
   border-radius: $border-radius-x1;
   padding: $padding-x2;
   background-color: $background-default-input;
@@ -10,7 +10,7 @@ select {
   outline: none;
 
   option {
-    font-size: $font-size-x1;
+    font-size: $font-size-x01;
     cursor: pointer;
   }
 }

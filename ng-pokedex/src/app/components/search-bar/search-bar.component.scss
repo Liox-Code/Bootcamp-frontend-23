@@ -34,20 +34,20 @@
   & input {
     height: 100%;
     border: none;
-    font-size: $font-size-x1;
+    font-size: $font-size-x01;
     outline: none;
   }
 
   & .search-icon {
-    height: $font-size-x4;
-    width: $font-size-x4;
-    font-size: $font-size-x4;
+    height: $font-size-x04;
+    width: $font-size-x04;
+    font-size: $font-size-x04;
   }
 }
 
 .search-bar-help{
   align-self: center;
   justify-self: center;
-  font-size: $font-size-x1;
+  font-size: $font-size-x01;
   color: $background-pressed-input;
 }

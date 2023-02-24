@@ -16,7 +16,7 @@ import { SymbolComponent } from './components/symbol/symbol.component';
 import { TypeDetailsComponent } from './components/type-details/type-details.component';
 import { PokemonPreviewComponent } from './components/pokemon-preview/pokemon-preview.component';
 import { RowInfoTagsComponent } from './components/row-info-tags/row-info-tags.component';
-import { InfoCardComponent } from './components/info-card/info-card.component';
+import { InfoChartCardComponent } from './components/info-card/info-chart-card.component';
 import { TagPokemonTypeComponent } from './components/tag-pokemon-type/tag-pokemon-type.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
@@ -27,6 +27,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AboutCardComponent } from './components/about-card/about-card.component';
+import { StatsComponent } from './components/stats/stats.component';
 
 
 @NgModule({
@@ -43,14 +44,15 @@ import { AboutCardComponent } from './components/about-card/about-card.component
     TypeDetailsComponent,
     PokemonPreviewComponent,
     RowInfoTagsComponent,
-    InfoCardComponent,
+    InfoChartCardComponent,
     TagPokemonTypeComponent,
     BadgeComponent,
     DropdownComponent,
     NotFoundComponent,
     PokemonDetailsComponent,
     TabContainerComponent,
-    AboutCardComponent
+    AboutCardComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,

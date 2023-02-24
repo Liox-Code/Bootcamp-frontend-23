@@ -1,0 +1,17 @@
+<div class="stats-container">
+  <p>{{data.description}}</p>
+  <div class="stats" *ngFor="let stat of data.stats">
+    <span class="bold-text">{{stat.statName}}</span>
+    <span class="normal-text">{{stat.n1}}</span>
+    <span class="graphic">{{stat.graphic}}</span>
+    <span class="normal-text">{{stat.n2}}</span>
+    <span class="normal-text">{{stat.n3}}</span>
+  </div>
+  <div class="stats">
+    <span class="bold-text">Total</span>
+    <span class="normal-text">{{data.total}}</span>
+    <span></span>
+    <span class="bold-text">Min</span>
+    <span class="bold-text">Max</span>
+  </div>
+</div>

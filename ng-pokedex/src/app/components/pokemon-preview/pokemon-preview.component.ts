@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./pokemon-preview.component.scss']
 })
 export class PokemonPreviewComponent {
-
+  data = {
+    id: 4,
+    name: 'Charmander',
+    generation: 'Generation 1',
+    type: ['fire-icon'],
+    image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png',
+    color: 'container-red'
+  }
 }
