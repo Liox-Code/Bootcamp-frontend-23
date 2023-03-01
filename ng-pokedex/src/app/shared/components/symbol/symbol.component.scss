@@ -1,0 +1,23 @@
+@import '../../../../styles/variables.scss';
+
+.symbol-container {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+  border-radius: $border-radius-x3;
+
+  .symbol-icon {
+    color: aquamarine;
+    font-size: 10rem;
+    height: 10rem;
+    width: 10rem;
+  }
+}
+
+.symbol-container:hover {
+  background-color: aquamarine;
+  .search-icon {
+    color: white;
+  }
+}

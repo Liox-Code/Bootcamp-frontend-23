@@ -1,0 +1,75 @@
+@import '../../../../styles/variables.scss';
+
+.pokemon-types-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.pokemon-types-list-container {
+  display: inherit;
+  grid-template-rows: min-content min-content auto;
+  align-items: start;
+  gap: $gap-x03;
+  padding: 6rem 0;
+  padding-right: 9rem;
+  background-color: white;
+
+  h2 {
+    font-size: $font-size-x04;
+    font-weight: $font-weight-bold;
+    text-decoration: underline;
+  }
+
+  p {
+    font-size: $font-size-x01;
+  }
+}
+
+.pokemon-types-details-container {
+  display: grid;
+  align-items: center;
+  grid-template-rows: 40% 1fr 1fr;
+  justify-items: center;
+  gap: 4rem;
+  padding: 4rem;
+  background-color: aquamarine;
+}
+
+.pokemon-icon-circular-container {
+  height: 24rem;
+  width: 24rem;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.pokemons-list {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 6rem;
+}
+
+.pokemon-item {
+  height: 100%;
+  width: 16rem;
+  background-color: gray;
+}
+
+.pokemon-info-container {
+  display: grid;
+  align-content: space-between;
+  height: 100%;
+  width: 100%;
+  padding: 4rem 6rem;
+  background-color: gray;
+}
+
+.pokemon-info-row {
+  height: 4rem;
+  width: 100%;
+  background-color: white;
+}

@@ -1,0 +1,39 @@
+@import '../../../../styles/variables.scss';
+
+.pokemon-preview-container{
+  display: grid;
+  justify-items: center;
+  gap: $gap-x03;
+
+  .image-container {
+    display: inherit;
+    align-items: center;
+    justify-items: center;
+    padding: $padding-x2;
+    aspect-ratio: 1;
+    background-color: $background-default-input;
+    border-radius: $border-radius-circle;
+  }
+
+  img {
+    width: 100%;
+    border-radius: $border-radius-circle;
+  }
+
+  h3 {
+    color: $text-paragraph;
+  }
+
+  h2 {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.info-container {
+  display: inherit;
+  justify-items: center;
+  gap: $gap-x01;
+}
+
+.type-icon-container{
+}

@@ -1,8 +1,0 @@
-<app-navbar></app-navbar>
-<app-search-bar (searchQuery)="onSearchChange($event)"></app-search-bar>
-<app-dropdown [options]="pokemonGenerations" (selectedOption)="selectGeneration($event)"></app-dropdown>
-<app-card-list [pokemons]="filteredItems" *ngIf="filteredItems.length > 0; else notFoundTemplate"></app-card-list>
-
-<ng-template #notFoundTemplate>
-  <app-not-found></app-not-found>
-</ng-template>
