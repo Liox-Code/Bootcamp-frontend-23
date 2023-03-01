@@ -29,14 +29,16 @@ import { CommonModule } from '@angular/common';
 import { AboutCardComponent } from './components/about-card/about-card.component';
 import { StatsComponent } from './components/stats/stats.component';
 
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
+    HomePageComponent,
     AppComponent,
     CardComponent,
     NavbarComponent,
     SearchBarComponent,
-    HomePageComponent,
     TypesPageComponent,
     CardListComponent,
     SymbolListComponent,
@@ -56,6 +58,7 @@ import { StatsComponent } from './components/stats/stats.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,

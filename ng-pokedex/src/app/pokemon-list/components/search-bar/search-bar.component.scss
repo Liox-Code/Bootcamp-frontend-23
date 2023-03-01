@@ -1,0 +1,53 @@
+@import '../../../../styles//variables.scss';
+
+.search-bar-background{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: minmax(36rem, 80rem);
+  height: 280px;
+  width: 100%;
+  background-color: $text-title-red;
+}
+
+.search-bar-container{
+  display: inherit;
+  grid-auto-flow: row;
+  grid-auto-rows: 6.4rem;
+  gap: 2rem;
+  width: 100%;
+  padding: 0 4rem;
+}
+
+.search-bar{
+  display: inherit;
+  grid-template-columns: auto 2fr;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 0 2rem;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background-color: $background-white;
+
+  & input {
+    height: 100%;
+    border: none;
+    font-size: $font-size-x01;
+    outline: none;
+  }
+
+  & .search-icon {
+    height: $font-size-x04;
+    width: $font-size-x04;
+    font-size: $font-size-x04;
+  }
+}
+
+.search-bar-help{
+  align-self: center;
+  justify-self: center;
+  font-size: $font-size-x01;
+  color: $background-pressed-input;
+}
