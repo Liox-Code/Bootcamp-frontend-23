@@ -59,7 +59,7 @@ export class HomePageComponent {
   }
 
   getPokemonSpecies(pokemon: Pokemon, speciesUrl: number): void {
-    this.pokemonService.getPokemonSpecies(speciesUrl).subscribe((species: RequestPokemonSpecies) => {
+    this.pokemonService.getPokemonSpecies(speciesUrl.toString()).subscribe((species: RequestPokemonSpecies) => {
       pokemon.color = species.color.name;
       pokemon.generation = species.generation.name
       this.addPokemonToList(pokemon);

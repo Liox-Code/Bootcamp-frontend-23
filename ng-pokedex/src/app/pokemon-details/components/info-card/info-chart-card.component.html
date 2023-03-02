@@ -1,8 +1,6 @@
 <div class="info-chart-container">
-  <h2>{{data.title}}</h2>
+  <h2>{{info.title}}</h2>
   <div class="chart">
-    <app-pokemon-preview></app-pokemon-preview>
-    <app-pokemon-preview></app-pokemon-preview>
-    <app-pokemon-preview></app-pokemon-preview>
+    <app-pokemon-preview *ngFor="let evolution of info.evolutions" [data]="evolution"></app-pokemon-preview>
   </div>
 </div>

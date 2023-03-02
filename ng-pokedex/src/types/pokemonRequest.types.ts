@@ -7,10 +7,15 @@ export interface AllResults {
 
 export interface RequestPokemonDetails {
   id: number;
+  name: string;
+  height: number;
+  weight: number;
   order: number;
   species: RequestNameUri;
   sprites: RequestPokemonSprites;
   types: RequestSlotType[];
+  abilities: Ability[];
+  stats: Stat[];
 }
 
 export interface RequestPokemonSprites {
@@ -38,6 +43,7 @@ export interface RequestPokemonSpecies {
   id: number;
   color: RequestNameUri;
   generation: RequestNameUri;
+  evolution_chain: Uri;
 }
 
 export interface RequestPokemonColor {
@@ -78,6 +84,9 @@ interface RequestPokemonSlot {
   pokemon: RequestNameUri;
   slot: number;
 }
+interface Uri {
+  url: string;
+}
 
 export interface RequestNameUri {
   name: string;
@@ -87,4 +96,26 @@ export interface RequestNameUri {
 export interface RequestSlotType {
   slot: number;
   type: RequestNameUri;
+}
+
+interface Stat {
+  base_stat: number;
+  effort: number;
+  stat: RequestNameUri;
+}
+
+interface Ability {
+  ability: RequestNameUri;
+  is_hidden: boolean;
+  slot: number;
+}
+
+export interface EvolutionChain {
+  id: number;
+  chain: Chain;
+}
+
+interface Chain {
+  evolves_to: Chain[];
+  species: RequestNameUri;
 }

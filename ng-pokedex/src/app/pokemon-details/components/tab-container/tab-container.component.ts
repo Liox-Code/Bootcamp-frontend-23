@@ -12,7 +12,6 @@ export class TabContainerComponent {
   selectedTabIndex = 0
 
   ngOnInit(): void {
-    console.log(this.components)
   }
 
   onTabChanged(event: MatTabChangeEvent) {

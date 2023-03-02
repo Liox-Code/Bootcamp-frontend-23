@@ -6,20 +6,23 @@ import { Component, Inject } from '@angular/core';
   styleUrls: ['./about-card.component.scss']
 })
 export class AboutCardComponent {
+
   about = {
     description: 'Description ok the pokemon lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
-    species: 'Seed',
-    height: '0.7m (2.04)',
-    weight: '6.9kg (15.2lbs)',
-    abilities: [
-      '1. Overgrow'
-    ],
-    weaknesses: ['fire','ice']
+    species: [],
+    height: '',
+    weight: '',
+    abilities: [],
+    weaknesses: []
   }
 
   constructor(@Inject('data') private data: any) {}
 
   ngOnInit(): void {
-    // this.about.description = this.data.pokemonInfo
+    this.about.species = this.data.species
+    this.about.height = this.data.height
+    this.about.weight = this.data.weight
+    this.about.abilities = this.data.abilities
+    this.about.weaknesses = this.data.weaknesses
   }
 }

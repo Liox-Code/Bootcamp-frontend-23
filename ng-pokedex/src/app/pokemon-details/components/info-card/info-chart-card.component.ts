@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-info-chart-card',
@@ -6,15 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./info-chart-card.component.scss']
 })
 export class InfoChartCardComponent {
-  data = {
+  info = {
     title: 'Evolution Chart',
-    evolutions: {
-      id: 0,
-      name: '',
-      image: '',
-      type: [],
-      color: '',
-      generation: ''
-    }
+    evolutions: []
+  }
+
+  constructor(@Inject('data') private data: any) {}
+
+  ngOnInit(): void {
+    this.info.evolutions = this.data
   }
 }

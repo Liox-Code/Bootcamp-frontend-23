@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { PokemonTypeDetails } from '../../../types/typesPokemon';
-import { AllResults, RequestPokemonDetails, RequestPokemonSpecies, RequestPokemonType, RequestNameUri } from '../../../types/pokemonRequest.types';
+import { map, switchMap } from 'rxjs/operators';
+import { Pokemon, PokemonTypeDetails } from '../../../types/typesPokemon';
+import { AllResults, RequestPokemonDetails, RequestPokemonSpecies, RequestPokemonType, RequestNameUri, EvolutionChain } from '../../../types/pokemonRequest.types';
 
 @Injectable({
   providedIn: 'root'
@@ -65,18 +65,21 @@ export class PokemonService {
     return parsedAllPokemonsData
   }
 
-  getPokemonDetails(pokemonNumber: string): Observable<RequestPokemonDetails> {
-    const url = `${this.apiUrl}pokemon/${pokemonNumber}`;
+  getPokemonDetails(pokemonNumberOrName: string): Observable<RequestPokemonDetails> {
+    const url = `${this.apiUrl}pokemon/${pokemonNumberOrName}`;
     return this.http.get<RequestPokemonDetails>(url).pipe(map((res) => { return this.parsePokemonDetails(res) }))
   }
 
   private parsePokemonDetails(response: RequestPokemonDetails): RequestPokemonDetails {
     const pokemonDetails = response
+    for(const pokemon of pokemonDetails.types) {
+      pokemon.type.name = this.icons[pokemon.type.name]
+    }
     return pokemonDetails
   }
 
-  getPokemonSpecies(pokemonNumber: number): Observable<RequestPokemonSpecies> {
-    const url = `${this.apiUrl}pokemon-species/${pokemonNumber}`;
+  getPokemonSpecies(pokemonNumberOrName: string): Observable<RequestPokemonSpecies> {
+    const url = `${this.apiUrl}pokemon-species/${pokemonNumberOrName}`;
     return this.http.get<RequestPokemonSpecies>(url).pipe(map((res) => { return this.parsePokemonSpecies(res) }))
   }
 
@@ -139,6 +142,24 @@ export class PokemonService {
     }
 
     return parsedPokemonTypes
+  }
+
+  getPokemonEvolutionChain(url: string): Observable<string[]> {
+    return this.http.get<EvolutionChain>(url)
+      .pipe(map((evolutionChain) =>  this.getEvolutionSpecies(evolutionChain)))
+  }
+
+  private getEvolutionSpecies(evolutionChain: EvolutionChain): string[] {
+    const evolutionsUrls: string[] = []
+    let currentEvolution = evolutionChain.chain
+    evolutionsUrls.push(currentEvolution.species.name);
+
+    while (currentEvolution.evolves_to.length > 0){
+      currentEvolution = currentEvolution.evolves_to[0];
+      evolutionsUrls.push(currentEvolution.species.name);
+    }
+
+    return evolutionsUrls
   }
 
   private setTypeIcon(typeName: string) {
