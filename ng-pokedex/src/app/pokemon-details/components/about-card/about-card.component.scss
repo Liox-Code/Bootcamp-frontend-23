@@ -2,6 +2,7 @@
 
 .about-card-container {
   display: grid;
+  grid-auto-rows: min-content;
   gap: $gap-x03;
   padding: $padding-x2;
   border-radius: $border-radius-x2;

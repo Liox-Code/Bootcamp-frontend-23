@@ -10,10 +10,10 @@
     <app-tab-container [components]="components"></app-tab-container>
   </div>
   <div [ngClass]="[pokemonDetails.color ,'image-container']">
-    <img [src]="pokemonDetails.image" alt="">
+    <img [src]="pokemonDetails.image" [alt]="pokemonDetails.name + 'image'">
     <div class="action-container">
-      <button class="previous-button">Previous</button>
-      <button class="next-button">Next</button>
+      <button (click)="previousDetails()" class="previous-button">Previous</button>
+      <button (click)="nextDetails()" class="next-button">Next</button>
     </div>
   </div>
 </div>

@@ -42,4 +42,12 @@ export class PokemonDetailsComponent {
       }
     },
   ]
+
+  nextDetails = () => {
+    console.log('NEXT')
+  }
+
+  previousDetails = () => {
+    console.log('Previous')
+  }
 }

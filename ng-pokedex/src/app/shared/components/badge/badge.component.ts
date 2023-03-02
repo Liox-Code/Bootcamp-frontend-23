@@ -10,7 +10,9 @@ export class BadgeComponent {
   @Input() iconColor = ''
 
   ngOnInit(): void {
-    console.log(this.iconName)
-    console.log(this.iconColor)
+    console.log({
+      iconName: this.iconName,
+      iconColor: this.iconColor
+    })
   }
 }
