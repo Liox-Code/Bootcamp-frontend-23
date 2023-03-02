@@ -1,0 +1,13 @@
+.container {
+  display: grid;
+  grid-template-rows: 80px auto;
+  max-width: 100vw;
+  min-height: 100vh;
+}
+
+header, main {
+  display: inherit;
+  grid-template-columns: minmax(0, 1500px);
+  justify-content: center;
+}
+

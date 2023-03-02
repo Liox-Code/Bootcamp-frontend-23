@@ -8,9 +8,10 @@ import { NavbarComponent } from './components/navbar/navbar.component'
 import { NotFoundComponent } from './components/not-found/not-found.component'
 import { SymbolComponent } from './components/symbol/symbol.component'
 import { SymbolListComponent } from './components/symbol-list/symbol-list.component'
-import { TagPokemonTypeComponent } from './components/tag-pokemon-type/tag-pokemon-type.component'
+import { TagPokemonTypeComponent } from './components/tag-pokemon-type/tag-pokemon-type.component';
 
-
+import { LayoutComponent } from './components/layout/layout.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,13 @@ import { TagPokemonTypeComponent } from './components/tag-pokemon-type/tag-pokem
     NotFoundComponent,
     SymbolComponent,
     SymbolListComponent,
-    TagPokemonTypeComponent
+    TagPokemonTypeComponent,
+    LayoutComponent
   ],
   imports: [
     CommonModule,
-    MatIconModule
+    RouterModule,
+    MatIconModule,
   ],
   exports: [
     BadgeComponent,
@@ -33,7 +36,8 @@ import { TagPokemonTypeComponent } from './components/tag-pokemon-type/tag-pokem
     NotFoundComponent,
     SymbolComponent,
     SymbolListComponent,
-    TagPokemonTypeComponent
+    TagPokemonTypeComponent,
+    LayoutComponent
   ]
 })
 export class SharedModule { }
