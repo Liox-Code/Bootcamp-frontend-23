@@ -1,27 +1,32 @@
-# NgPokedex
+# Ng-pokedex
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
+This is a simple pokedex application built using Angular 15.1.0.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+&emsp;● Node.js (v14.16.0 or higher)
+&emsp;● npm (v6.14.0 or higher)
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository:
+   &emsp; git clone https://github.com/YOUR-USERNAME/ng-pokedex.git
 
-## Build
+2. Install dependencies:
+   &emsp; cd ng-pokedex
+   &emsp; npm install
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Running unit tests
+To start a local development server, run:
+&emsp; npm start
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Testing
 
-## Running end-to-end tests
+To run tests, run:
+&emsp; npm test
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Linting
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To run linting, run:
+&emsp; npm run lint
