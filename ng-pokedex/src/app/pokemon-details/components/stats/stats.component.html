@@ -3,15 +3,11 @@
   <div class="stats" *ngFor="let stat of stats.stats">
     <span class="bold-text">{{stat.name}}</span>
     <span class="normal-text">{{stat.value}}</span>
-    <span class="graphic">{{stat.value}}</span>
-    <span class="normal-text">{{stat.value}}</span>
-    <span class="normal-text">{{stat.value}}</span>
+    <progress class="graphic" [value]="stat.value" max="100"></progress>
   </div>
   <div class="stats">
-    <span class="bold-text">Total</span>
-    <span class="normal-text">{{stats.total}}</span>
+    <span class="bold-text">{{total.tag}}</span>
+    <span class="normal-text">{{total.value}}</span>
     <span></span>
-    <span class="bold-text">Min</span>
-    <span class="bold-text">Max</span>
   </div>
 </div>

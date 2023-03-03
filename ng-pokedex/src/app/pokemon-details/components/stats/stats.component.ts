@@ -24,11 +24,19 @@ export class StatsComponent {
     total: 318
   };
 
-  constructor(@Inject('data') private data: stats[]) {}
+  total = {
+    tag: 'Total',
+    value: 0
+  }
+
+  constructor(@Inject('data') private data: { stats: stats[]}) {}
 
   ngOnInit(): void {
-    console.log(this.data)
-    this.stats.stats = this.data
+    this.stats.stats = this.data.stats
+    this.total.value = this.stats.stats.reduce((total, stat) => {
+      total += stat.value
+      return total
+    }, 0)
   }
 
 }

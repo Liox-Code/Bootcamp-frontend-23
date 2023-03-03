@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { Pokemon, PokemonDetails } from '../../../../types/typesPokemon';
+import { PokemonDetails } from '../../../../types/typesPokemon';
 import { AboutCardComponent } from '../../components/about-card/about-card.component';
 import { StatsComponent } from '../../components/stats/stats.component';
 import { InfoChartCardComponent } from '../../components/info-card/info-chart-card.component';
 import { PokemonService } from '@app/services/pokemon/pokemon.service';
-import { RequestSlotType } from '../../../../types/pokemonRequest.types';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -13,11 +14,15 @@ import { RequestSlotType } from '../../../../types/pokemonRequest.types';
 })
 export class PokemonDetailsComponent {
 
-  constructor(private pokemonService: PokemonService){
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private Location: Location
+  ){
   }
 
   pokemonDetails: PokemonDetails = {
-    id: 4,
+    id: 1,
     name: '',
     generation: '',
     type: [],
@@ -31,95 +36,57 @@ export class PokemonDetailsComponent {
       weaknesses: ['']
     },
     stats: [],
-    evolutions: []
+    evolutions: [],
+    flavor_text_entries: []
   }
 
-  components = [
-    {
-      component: AboutCardComponent,
-      tabLabel: 'Pokédex Data',
-      data: this.pokemonDetails.data
-    },
-    {
-      component: StatsComponent,
-      tabLabel: 'Stats',
-      data: this.pokemonDetails.stats
-    },
-    {
-      component: InfoChartCardComponent,
-      tabLabel: 'Evolution',
-      data: this.pokemonDetails.evolutions
-    },
-  ]
+  components: {
+    component: any
+    tabLabel: string
+    data: any
+  }[] = []
 
   ngOnInit(): void {
-    this.getPokemon()
-    console.log(this.pokemonDetails)
-  }
+    this.route.data.subscribe(data => {
+      this.pokemonDetails = data['data']
 
-  getPokemon(): void {
-    this.pokemonService.getPokemonDetails('1').subscribe(details => {
-      this.pokemonDetails.id = details.id
-      this.pokemonDetails.name = details.name
-      this.pokemonDetails.image = details.sprites.other['official-artwork'].front_default
-      this.pokemonDetails.type = details.types.map((type: RequestSlotType) => type.type.name)
-      this.pokemonDetails.data.species = details.types.map((type: RequestSlotType) => type.type.name)
-      this.pokemonDetails.data.height = details.height
-      this.pokemonDetails.data.weight = details.weight
-      this.pokemonDetails.data.abilities = details.abilities.map((ability) => ability.ability.name)
-
-      details.types.map((type: RequestSlotType) => {
-        this.pokemonService.getPokemonTypes(type.type.url).subscribe((type) => {
-          this.pokemonDetails.data.weaknesses = type.weaknessesTypes.map((type) => type.name)
-        })
-      })
-
-      details.stats.forEach((stat) => {
-        this.pokemonDetails.stats.push( {
-          name: stat.stat.name,
-          value: stat.base_stat
-        })
-      })
-    })
-    this.pokemonService.getPokemonSpecies('1').subscribe(species => {
-      this.pokemonDetails.color = species.color.name;
-      this.pokemonDetails.generation = species.generation.name
-
-      this.pokemonService.getPokemonEvolutionChain(species.evolution_chain.url).subscribe((pokemonNames) => {
-
-        pokemonNames.map((name) => {
-          const pokemon: Pokemon = {
-            id: 0,
-            name: '',
-            image: '',
-            color: '',
-            type: [],
-            generation: '',
+      this.components = [
+        {
+          component: AboutCardComponent,
+          tabLabel: 'Pokédex Data',
+          data: data['data'].data
+        },
+        {
+          component: StatsComponent,
+          tabLabel: 'Stats',
+          data: {
+            stats: data['data'].stats
           }
-          this.pokemonService.getPokemonDetails(name).subscribe(details => {
-            pokemon.id = details.id
-            pokemon.name = details.name
-            pokemon.image = details.sprites.other['official-artwork'].front_default
-            pokemon.type = details.types.map((type: RequestSlotType) => type.type.name)
-          })
-
-          this.pokemonService.getPokemonSpecies(name).subscribe(species => {
-            pokemon.color = species.color.name
-            pokemon.generation = species.generation.name
-          })
-
-          this.pokemonDetails.evolutions.push(pokemon)
-        })
-      })
-    })
+        },
+        {
+          component: InfoChartCardComponent,
+          tabLabel: 'Evolution',
+          data: data['data'].evolutions
+        },
+      ]
+    });
   }
 
-  nextDetails = () => {
-    console.log('NEXT')
-    console.log(this.pokemonDetails)
+  goBack = () => {
+    this.Location.back();
   }
 
-  previousDetails = () => {
-    console.log('Previous')
+  nextDetails = (pokemonId: number) => {
+    const newId = (pokemonId + 1).toString();
+    this.router.navigate(['/pokemon-details/details', newId], {
+      relativeTo: this.route
+    });
+  }
+
+  previousDetails = (pokemonId: number) => {
+    const newId = (pokemonId - 1).toString();
+    this.router.navigate(['/pokemon-details/details', newId], {
+      relativeTo: this.route
+    });
   }
 }

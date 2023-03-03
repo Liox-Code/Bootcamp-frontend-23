@@ -17,6 +17,7 @@ export interface PokemonDetails {
   data: PokedexData
   stats: nameValue[]
   evolutions: Pokemon[]
+  flavor_text_entries: FlavorText[]
 }
 
 export interface PokemonTypeDetails {
@@ -43,4 +44,15 @@ export interface PokemonType {
 export interface nameValue {
   name: string;
   value: number;
+}
+
+interface FlavorText {
+  flavor_text: string;
+  language: RequestNameUri;
+  version: RequestNameUri;
+}
+
+export interface RequestNameUri {
+  name: string;
+  url: string;
 }

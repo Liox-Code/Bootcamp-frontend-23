@@ -13,10 +13,15 @@
   background-color: $background-white;
 
   .arrow_back-icon{
-    height: $font-size-x03;
-    width: $font-size-x03;
-    font-size: $font-size-x03;
+    height: $font-size-x06;
+    width: $font-size-x06;
+    font-size: $font-size-x06;
     color: $text-paragraph;
+    cursor: pointer;
+
+    &:hover {
+      color: $text-subtitle-black;
+    }
   }
 
   h3 {
@@ -36,6 +41,8 @@
   .type-icon-container {
     display: inherit;
     grid-auto-flow: column;
+    grid-auto-columns: min-content;
+    gap: $gap-x02;
   }
 }
 

@@ -44,6 +44,7 @@ export interface RequestPokemonSpecies {
   color: RequestNameUri;
   generation: RequestNameUri;
   evolution_chain: Uri;
+  flavor_text_entries: FlavorText[];
 }
 
 export interface RequestPokemonColor {
@@ -118,4 +119,10 @@ export interface EvolutionChain {
 interface Chain {
   evolves_to: Chain[];
   species: RequestNameUri;
+}
+
+interface FlavorText {
+  flavor_text: string;
+  language: RequestNameUri;
+  version: RequestNameUri;
 }

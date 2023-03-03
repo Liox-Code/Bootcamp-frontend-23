@@ -8,8 +8,4 @@ import { PokemonTypeDetails } from '../../../../types/typesPokemon';
 })
 export class SymbolListComponent {
   @Input() pokemonTypes: PokemonTypeDetails[] = []
-
-  ngAfcterViewInit(){
-    console.log('this.pokemonTypes')
-  }
 }

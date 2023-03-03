@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PokemonDetailsComponent } from './pages/pokemon-details/pokemon-details.component';
 import { TypesPageComponent } from './pages/types-page/types-page.component';
 import { LayoutComponent } from '@app/shared/components/layout/layout.component';
+import { PokemonDetailsResolver } from '@app/resolvers/pokemon-details.resolver';
 
 const routes: Routes = [
   {
@@ -16,11 +17,14 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
-        path: 'details',
-        component: PokemonDetailsComponent
+        path: 'details/:id',
+        component: PokemonDetailsComponent,
+        resolve: {
+          data: PokemonDetailsResolver
+        }
       },
       {
-        path: 'type',
+        path: 'type/:id',
         component: TypesPageComponent
       }
     ]

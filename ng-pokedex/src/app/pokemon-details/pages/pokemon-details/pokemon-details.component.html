@@ -1,6 +1,6 @@
 <div class="pokemon-details-container">
   <div class="info-container">
-    <mat-icon class="arrow_back-icon" aria-hidden="false" aria-label="arrow_back icon" fontIcon="arrow_back"></mat-icon>
+    <mat-icon (click)="goBack()" class="arrow_back-icon" aria-hidden="false" aria-label="arrow_back icon" fontIcon="arrow_back"></mat-icon>
     <h3>#{{pokemonDetails.id}}</h3>
     <h2>{{pokemonDetails.name}}</h2>
     <span>{{pokemonDetails.generation}}</span>
@@ -12,8 +12,8 @@
   <div [ngClass]="[pokemonDetails.color ,'image-container']">
     <img [src]="pokemonDetails.image" [alt]="pokemonDetails.name + 'image'">
     <div class="action-container">
-      <button (click)="previousDetails()" class="previous-button">Previous</button>
-      <button (click)="nextDetails()" class="next-button">Next</button>
+      <button (click)="previousDetails(pokemonDetails.id)" class="previous-button">Previous</button>
+      <button (click)="nextDetails(pokemonDetails.id)" class="next-button">Next</button>
     </div>
   </div>
 </div>

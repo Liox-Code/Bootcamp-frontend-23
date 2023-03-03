@@ -11,8 +11,13 @@
 
   .badge-icon {
     color: $background-white;
-    font-size: $font-size-x04;
-    height: $font-size-x04;
-    width: $font-size-x04;
+    font-size: $font-size-x03;
+    height: $font-size-x03;
+    width: $font-size-x03;
   }
+
+}
+
+::ng-deep .mat-icon path {
+  fill: $background-white;
 }

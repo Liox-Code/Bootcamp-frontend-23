@@ -1,4 +1,4 @@
-<div class="pokemon-preview-container">
+<a class="pokemon-preview-container" [routerLink]="['/pokemon-details/details', data.id]">
   <div class="image-container">
     <img [src]="data.image" alt="{{data.name}} image">
   </div>
@@ -9,4 +9,4 @@
       <app-badge *ngFor="let pokemonType of data.type" [iconName]="pokemonType" [iconColor]="data.color"></app-badge>
     </div>
   </div>
-</div>
+</a>

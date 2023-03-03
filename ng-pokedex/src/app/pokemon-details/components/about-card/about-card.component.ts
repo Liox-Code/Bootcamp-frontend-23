@@ -8,7 +8,7 @@ import { Component, Inject } from '@angular/core';
 export class AboutCardComponent {
 
   about = {
-    description: 'Description ok the pokemon lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
+    description: 'Description of the pokemon',
     species: [],
     height: '',
     weight: '',
