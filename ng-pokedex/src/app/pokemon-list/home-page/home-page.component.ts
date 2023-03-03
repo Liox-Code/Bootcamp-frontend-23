@@ -32,15 +32,22 @@ export class HomePageComponent {
   ngOnInit(): void {
     this.getPokemons();
     this.getGenerations()
+
+    this.pokemonGenerations = this.pokemonGenerations.sort((genX, genY) =>  genX.id - genY.id);
+    this.pokemons = this.pokemons.sort((pokeX, pokeY) =>  pokeX.id - pokeY.id);
   }
 
   get filteredItems() {
-    return this.pokemons.filter(pokemon => {
+    let pokemons = this.pokemons.filter(pokemon => {
       const idMatch = pokemon.id.toString().toLowerCase().includes(this.searchQuery.toLowerCase())
       const textMatch = pokemon.name.toLowerCase().includes(this.searchQuery.toLowerCase())
 
       return idMatch || textMatch
     });
+
+    pokemons = pokemons.sort((pokeX, pokeY) =>  pokeX.id - pokeY.id);
+
+    return pokemons
   }
 
   getPokemons(): void {
