@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { PokemonDetailsComponent } from './pages/pokemon-details/pokemon-details.component';
 import { TypesPageComponent } from './pages/types-page/types-page.component';
+import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component';
 import { LayoutComponent } from '@app/shared/components/layout/layout.component';
 import { PokemonDetailsResolver } from '@app/resolvers/pokemon-details.resolver';
 
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'type/:id',
         component: TypesPageComponent
+      },
+      {
+        path: 'add-pokemon',
+        component: AddPokemonComponent
       }
     ]
   }

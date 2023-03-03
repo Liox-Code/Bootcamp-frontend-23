@@ -7,17 +7,20 @@
   height: 100%;
   border-radius: $border-radius-x3;
 
+
+  ::ng-deep .mat-icon path {
+    fill: $text-title-red;
+  }
+
+
   .symbol-icon {
     color: aquamarine;
     font-size: 10rem;
     height: 10rem;
     width: 10rem;
   }
-}
 
-.symbol-container:hover {
-  background-color: aquamarine;
-  .search-icon {
-    color: white;
+  &:hover {
+    background-color: aquamarine;
   }
 }

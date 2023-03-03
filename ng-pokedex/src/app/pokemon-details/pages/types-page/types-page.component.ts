@@ -17,6 +17,7 @@ export class TypesPageComponent {
     this.apiService.getAllPokemonTypes().subscribe((pokemonTypes: RequestNameUri[]) => {
       for (const typeItem of pokemonTypes) {
         this.apiService.getPokemonTypes(typeItem.url).subscribe((pokemonType: PokemonTypeDetails) => {
+          console.log(pokemonType)
           this.pokemonTypes.push(pokemonType)
         });
       }

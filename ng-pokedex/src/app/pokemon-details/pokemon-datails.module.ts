@@ -16,6 +16,8 @@ import { TypeDetailsComponent } from './components/type-details/type-details.com
 import { MatTabsModule } from '@angular/material/tabs';
 import { SharedModule } from '@app/shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
+import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,13 +31,15 @@ import { MatIconModule } from '@angular/material/icon';
     StatsComponent,
     TabContainerComponent,
     TypeDetailsComponent,
+    AddPokemonComponent,
   ],
   imports: [
     CommonModule,
     PokemonDetailsRoutingModule,
     SharedModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ]
 })
 export class PokemonDatailsModule { }

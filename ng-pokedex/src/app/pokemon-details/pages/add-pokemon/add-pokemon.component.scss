@@ -1,0 +1,81 @@
+@import '../../../../styles/variables.scss';
+
+.from-container {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+  background-image: url('../../../../assets/images/Pokemon-Logo.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  font-size: $font-size-x03;
+
+  .add-pokemon-form {
+    display: inherit;
+    align-items: center;
+    justify-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: $border-radius-pill;
+
+    div {
+      width: 100%;
+    }
+  }
+
+  label {
+    color: $background-white;
+    font-weight: bold;
+    margin-bottom: 1.0rem;
+  }
+
+  input {
+    padding: $margin-x2;
+    border-radius: $border-radius-x2;
+    border: none;
+    margin-bottom: 2.0rem;
+    width: 100%;
+  }
+
+  button {
+    padding: $margin-x2;
+    border-radius: $border-radius-x2;
+    border: none;
+    background-color: $text-title-red;
+    color: $background-white;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($text-title-red, 10%);
+    }
+
+    &:disabled {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+  }
+
+  .image-input-container {
+    color: $background-white;
+
+    .image-input {
+    }
+
+    .image-input::-webkit-file-upload-button {
+      padding: $margin-x2;
+      border-radius: $border-radius-pill;
+      border: none;
+      background-color: $text-title-red;
+      color: $background-white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  .error {
+    color: $text-title-red;
+    margin-top: 0.5rem;
+  }
+}

@@ -1,0 +1,26 @@
+<div class="from-container">
+  <form class="add-pokemon-form" [formGroup]="pokemonForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="pokemonForm.get('name')?.invalid && (pokemonForm.get('name')?.dirty || pokemonForm.get('name')?.touched)">
+        <div class="error" *ngIf="pokemonForm.get('name')?.errors?.['required']">El nombre es obligatorio.</div>
+      </div>
+    </div>
+    <div>
+      <label for="type">Tipo:</label>
+      <input type="text" id="type" formControlName="type">
+      <div *ngIf="pokemonForm.get('type')?.invalid && (pokemonForm.get('type')?.dirty || pokemonForm.get('type')?.touched)">
+        <div class="error" *ngIf="pokemonForm.get('type')?.errors?.['required']">El tipo es obligatorio.</div>
+      </div>
+    </div>
+    <div class="image-input-container">
+      <label for="image">Imagen:</label>
+      <input type="file" id="image" formControlName="image" class="image-input">
+      <div *ngIf="pokemonForm.get('image')?.invalid && (pokemonForm.get('image')?.dirty || pokemonForm.get('image')?.touched)">
+        <div class="error" *ngIf="pokemonForm.get('image')?.errors?.['required']">La imagen es obligatoria.</div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="pokemonForm.invalid">Guardar</button>
+  </form>
+</div>
